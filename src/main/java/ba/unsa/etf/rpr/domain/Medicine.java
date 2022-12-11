@@ -86,8 +86,8 @@ public class Medicine {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Medicine quote = (Medicine) o;
-        return id == quote.id;
+        Medicine medicine = (Medicine) o;
+        return id == medicine.id;
     }
 
     @Override
