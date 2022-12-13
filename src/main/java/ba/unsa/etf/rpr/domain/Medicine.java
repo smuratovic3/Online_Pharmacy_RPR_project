@@ -90,7 +90,6 @@ public class Medicine {
         Medicine medicine = (Medicine) o;
         return id == medicine.id;
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(id, name, price, quantity, description,prescription,category);
