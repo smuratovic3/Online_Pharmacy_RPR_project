@@ -28,6 +28,26 @@ public class MedicineDaoSQLImpl implements MedicineDao {
 
     @Override
     public Medicine getById(int id) {
+        String query = "SELECT * FROM quotes WHERE id = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) { // result set is iterator.
+                Medicine medicine = new Medicine();
+                medicine.setId(rs.getInt("id"));
+                medicine.setName(rs.getString("name"));
+                medicine.setPrice(rs.getInt("price"));
+                medicine.setDescription(rs.getString("description"));
+                medicine.setPrescription(rs.getInt("prescription"));
+                rs.close();
+                return medicine;
+            } else {
+                return null; // if there is no elements in the result set return null
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // poor error handling
+        }
         return null;
     }
 
