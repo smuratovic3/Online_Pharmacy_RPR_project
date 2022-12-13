@@ -1,4 +1,5 @@
 package ba.unsa.etf.rpr.domain;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -94,4 +95,6 @@ public class Medicine {
     public int hashCode() {
         return Objects.hash(id, name, price, quantity, description,prescription,category);
     }
+
+
 }

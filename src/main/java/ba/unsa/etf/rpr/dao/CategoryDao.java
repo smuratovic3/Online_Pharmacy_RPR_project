@@ -8,4 +8,5 @@ import ba.unsa.etf.rpr.domain.Category;
  * @author Semina Muratović
  */
 public interface CategoryDao extends Dao<Category> {
+
 }
