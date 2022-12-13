@@ -66,6 +66,37 @@ public class MedicineDaoSQLImpl implements MedicineDao {
     @Override
     public List<Medicine> getAll() {return null;}
 
+
+    /**
+     * @param id for searching category for medicines
+     * @return specific Category for specific medicine from db
+     * @author Semina Muratović
+     */
+
+
+    public Category returnCategoryForId(int id) {
+        String query = "SELECT * FROM categories WHERE id = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(query);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Category c = new Category();
+                c.setId(rs.getInt(1));
+                c.setName(rs.getString(2));
+                return c;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * @param category search string for medicines
+     * @return list of medicines
+     * @author Semina Muratović
+     */
     @Override
     public List<Medicine> searchByCategory(Category category) {
         String query = "SELECT * FROM quotes WHERE category = ?";
