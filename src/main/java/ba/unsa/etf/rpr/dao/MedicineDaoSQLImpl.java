@@ -50,7 +50,6 @@ public class MedicineDaoSQLImpl implements MedicineDao {
         }
         return null;
     }
-
     @Override
     public Medicine add(Medicine item) {
         return null;
