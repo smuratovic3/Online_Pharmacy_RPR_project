@@ -6,13 +6,12 @@ import java.util.Objects;
  * Information about medicines
  * @author Semina Muratović
  **/
-public class Medicine {
+public class Medicine implements Idable {
     private int id;
     private String name;
     private int price;
     private int quantity;
     private String description;
-    private int prescription;
     private Category category;
 
     public int getId() {
@@ -55,13 +54,7 @@ public class Medicine {
         this.description = description;
     }
 
-    public int getPrescription() {
-        return prescription;
-    }
 
-    public void setPrescription(int prescription) {
-        this.prescription = prescription;
-    }
 
     public Category getCategory() {
         return category;
@@ -78,7 +71,6 @@ public class Medicine {
                 ", price=" + price +
                 ", quantity=" + quantity +
                 ", description=" + description +
-                ", prescription=" + prescription +
                 ", category=" + category +
                 '.';
     }
@@ -92,7 +84,7 @@ public class Medicine {
     }
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price, quantity, description,prescription,category);
+        return Objects.hash(id, name, price, quantity, description,category);
     }
 
 

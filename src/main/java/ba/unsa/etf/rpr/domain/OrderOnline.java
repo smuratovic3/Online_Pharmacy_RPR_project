@@ -5,7 +5,7 @@ import java.util.Objects;
  * Information about ordering online
  * @author Semina Muratović
  **/
-public class OrderOnline {
+public class OrderOnline implements Idable {
     private int id;
     private int payment;
     private int bill;

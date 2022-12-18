@@ -6,7 +6,7 @@ import java.util.Objects;
  *
  * @author Semina Muratović
  */
-public class Category {
+public class Category implements Idable{
     private int id;
     private String name;
     public int getId() {
@@ -27,10 +27,7 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return name;
     }
 
     @Override

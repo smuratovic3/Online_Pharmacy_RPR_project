@@ -5,7 +5,7 @@ import java.util.Objects;
  * Information about users
  * @author Semina Muratović
  **/
-public class User {
+public class User implements Idable {
     private int id;
     private String name;
     private String surname;

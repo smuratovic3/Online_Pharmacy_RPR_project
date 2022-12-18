@@ -39,7 +39,7 @@ public class MedicineDaoSQLImpl implements MedicineDao {
                 medicine.setName(rs.getString("name"));
                 medicine.setPrice(rs.getInt("price"));
                 medicine.setDescription(rs.getString("description"));
-                medicine.setPrescription(rs.getInt("prescription"));
+
                 rs.close();
                 return medicine;
             } else {
@@ -112,7 +112,7 @@ public class MedicineDaoSQLImpl implements MedicineDao {
                 q.setPrice(rs.getInt(3));
                 q.setQuantity(rs.getInt(1));
                 q.setDescription(rs.getString(4));
-                q.setPrescription(rs.getInt(5));
+
                 q.setCategory(category);
                 quoteLista.add(q);
             }
