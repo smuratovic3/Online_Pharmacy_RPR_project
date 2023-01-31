@@ -1,0 +1,25 @@
+.label {
+  -fx-text-fill: #34495e;
+  -fx-font-size: 14px;
+  -fx-font-weight: normal;
+}
+
+.text-field {
+  -fx-background-radius: 5;
+  -fx-background-color: white;
+  -fx-padding: 10px;
+  -fx-font-size: 14px;
+}
+
+.button {
+  -fx-background-radius: 5;
+  -fx-background-color: #3498db;
+  -fx-text-fill: white;
+  -fx-font-size: 14px;
+  -fx-padding: 10px 20px;
+}
+#grid {
+    -fx-background-color:  lightblue;
+    -fx-background-image:url('../images/image.jpg');
+    -fx-background-size:cover;
+}
