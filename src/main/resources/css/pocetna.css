@@ -1,4 +1,32 @@
-.label {
+.tbButton{
+-fx-background-color:transparent;
+-fx-border-width:0;
+}
+.tbButton:hover{
+    -fx-background-color:lightblue;
+}
+.tbButton:pressed{
+    -fx-background-color:gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.label {
   -fx-text-fill: #34495e;
   -fx-font-size: 14px;
   -fx-font-weight: normal;
@@ -20,6 +48,7 @@
 }
 #grid {
     -fx-background-color:  lightblue;
-    -fx-background-image:url('../images/image.jpg');
-    -fx-background-size:cover;
+   /* -fx-background-image:url('../images/image.jpg');
+    -fx-background-size:cover;*/
 }
+*/

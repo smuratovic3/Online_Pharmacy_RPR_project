@@ -7,10 +7,9 @@ import java.util.Objects;
  **/
 public class User implements Idable {
     private int id;
-    private String name;
-    private String surname;
+
     private String email;
-    private String address;
+
     private String password;
 
 
@@ -22,21 +21,7 @@ public class User implements Idable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 
     public String getEmail() {
         return email;
@@ -46,13 +31,7 @@ public class User implements Idable {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
-    }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
     public String getPassword() {
         return password;
     }
@@ -64,10 +43,7 @@ public class User implements Idable {
     public String toString() {
         return "User - " +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname=" + surname +
                 ", email=" + email +
-                ", address=" + address +
                 '.';
     }
 
@@ -81,7 +57,7 @@ public class User implements Idable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surname, email,address,password);
+        return Objects.hash(id,  email,password);
     }
 
 
