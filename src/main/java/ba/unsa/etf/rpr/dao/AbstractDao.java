@@ -2,21 +2,24 @@ package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
+
+import java.io.Closeable;
+import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 
 /**
  * Abstract class that implements core DAO CRUD methods for every entity
  *
- * @author Semina Muratovic
+ * @author Dino Keco
  */
-public abstract class AbstractDao<T extends Idable> implements Dao<T>{
+public abstract class AbstractDao<T extends Idable> implements Dao<T> {
     private static Connection connection = null;
     private String tableName;
 
     public AbstractDao(String tableName) {
         this.tableName = tableName;
-        if(connection==null) createConnection();
+        createConnection();
     }
 
     private static void createConnection(){
@@ -24,37 +27,29 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             try {
                 Properties p = new Properties();
                 p.load(ClassLoader.getSystemResource("database.properties").openStream());
-                String url = p.getProperty("server");
-                String username = p.getProperty("username");
-                String password = p.getProperty("password");
+                String url = p.getProperty("db.server");
+                String username = p.getProperty("db.username");
+                String password = p.getProperty("db.password");
                 AbstractDao.connection = DriverManager.getConnection(url, username, password);
             } catch (Exception e) {
                 e.printStackTrace();
-                System.exit(0);
+            }finally {
+                Runtime.getRuntime().addShutdownHook(new Thread(){
+                    @Override
+                    public void run(){
+                        try {
+                            connection.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
             }
         }
     }
 
     public static Connection getConnection(){
         return AbstractDao.connection;
-    }
-
-    /**
-     * For singleton pattern, we have only one connection on the database which will be closed automatically when our program ends
-     * But if we want to close connection manually, then we will call this method which should be called from finally block
-     */
-
-    public static void closeConnection() {
-        System.out.println("pozvana metoda za zatvaranje konekcije");
-        if(connection!=null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                //throw new RuntimeException(e);
-                e.printStackTrace();
-                System.out.println("REMOVE CONNECTION METHOD ERROR: Unable to close connection on database");
-            }
-        }
     }
 
     /**
@@ -105,7 +100,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             // bind params. IMPORTANT treeMap is used to keep columns sorted so params are bind correctly
             int counter = 1;
             for (Map.Entry<String, Object> entry: row.entrySet()) {
-                if (entry.getKey().equals("id")) continue; // skip ID
+                if (entry.getKey().equals("medicine_Id")) continue; // skip ID
                 stmt.setObject(counter, entry.getValue());
                 counter++;
             }
@@ -135,7 +130,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
             PreparedStatement stmt = getConnection().prepareStatement(builder.toString());
             int counter = 1;
             for (Map.Entry<String, Object> entry: row.entrySet()) {
-                if (entry.getKey().equals("id")) continue; // skip ID
+                if (entry.getKey().equals("medicine_Id")) continue; // skip ID
                 stmt.setObject(counter, entry.getValue());
                 counter++;
             }
@@ -200,7 +195,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
         int counter = 0;
         for (Map.Entry<String, Object> entry: row.entrySet()) {
             counter++;
-            if (entry.getKey().equals("id")) continue; //skip insertion of id due autoincrement
+            if (entry.getKey().equals("medicine_Id")) continue; //skip insertion of id due autoincrement
             columns.append(entry.getKey());
             questions.append("?");
             if (row.size() != counter) {
@@ -222,7 +217,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T>{
         int counter = 0;
         for (Map.Entry<String, Object> entry: row.entrySet()) {
             counter++;
-            if (entry.getKey().equals("id")) continue; //skip update of id due where clause
+            if (entry.getKey().equals("medicine_Id")) continue; //skip update of id due where clause
             columns.append(entry.getKey()).append("= ?");
             if (row.size() != counter) {
                 columns.append(",");
