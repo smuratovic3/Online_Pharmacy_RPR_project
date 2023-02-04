@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
+
 public class HomeController {
 
     public Button btnCancel;
@@ -43,7 +45,7 @@ public class HomeController {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/medicine.fxml"));
         stage.setTitle("Home page");
-        stage.setScene(new Scene(root, 600,550));
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
 

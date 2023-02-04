@@ -16,7 +16,7 @@ public class DaoFactory {
         return categoryDao;
     }
 
-    public static MedicineDao quoteDao(){
+    public static MedicineDao medicineDao(){
         return medicineDao;
     }
 

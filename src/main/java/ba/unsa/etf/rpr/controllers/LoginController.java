@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
+
 public class LoginController {
 
     public void actionLoginWindow(ActionEvent actionEvent) throws IOException {
@@ -25,7 +27,7 @@ public class LoginController {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/registration.fxml"));
         stage.setTitle("Log in");
-        stage.setScene(new Scene(root, 580,400));
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
     }

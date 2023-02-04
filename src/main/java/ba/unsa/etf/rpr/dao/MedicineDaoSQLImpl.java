@@ -13,11 +13,12 @@ import java.util.TreeMap;
  * MySQL Implementation of DAO
  * @author Semina Muratovic
  */
+
 public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements MedicineDao {
 
     private static MedicineDaoSQLImpl instance = null;
     private MedicineDaoSQLImpl() {
-        super("quotes");
+        super("Medicine");
     }
 
     /**
@@ -41,9 +42,9 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
     public Medicine row2object(ResultSet rs) throws MedicineException{
         try {
             Medicine q = new Medicine();
-            q.setId(rs.getInt("id"));
-            q.setName(rs.getString("medicine"));
-            q.setCategory(DaoFactory.categoryDao().getById(rs.getInt("category_id")));
+            q.setId(rs.getInt("medicine_Id"));
+            q.setName(rs.getString("medicine_Name"));
+            q.setCategory(DaoFactory.categoryDao().getById(rs.getInt("categories_Id")));
             return q;
         } catch (Exception e) {
             throw new MedicineException(e.getMessage(), e);
@@ -57,39 +58,33 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
     @Override
     public Map<String, Object> object2row(Medicine object) {
         Map<String, Object> item = new TreeMap<>();
-        item.put("id", object.getId());
-        item.put("medicine", object.getName());
-        item.put("category_id", object.getCategory().getId());
+        item.put("medicine_Id", object.getId());
+        item.put("medicine_Name", object.getName());
+        item.put("categories_Id", object.getCategory().getId());
         return item;
     }
 
     /**
-     * @param text search string for quotes
-     * @return list of quotes
+     * @param text search string for medicine
+     * @return list of medicines
      * @author Semina Muratovic
      */
 
     @Override
     public List<Medicine> searchByText(String text) throws MedicineException{
-        return executeQuery("SELECT * FROM quotes WHERE quote LIKE concat('%', ?, '%')", new Object[]{text});
+        return executeQuery("SELECT * FROM Medicine WHERE medicine_Name LIKE concat('%', ?, '%')", new Object[]{text});
     }
 
     /**
-     * @param category search string for quotes
-     * @return list of quotes
+     * @param category search string for medicines
+     * @return list of medicine
      * @author Semina Muratovic
      */
     @Override
     public List<Medicine> searchByCategory(Category category) throws MedicineException{
-        return executeQuery("SELECT * FROM quotes WHERE category_id = ?", new Object[]{category.getId()});
+        return executeQuery("SELECT * FROM Medicine WHERE categories_Id = ?", new Object[]{category.getId()});
     }
 
-    /**
-     * @return random quote from DB
-     * @throws MedicineException in case of error working with db
-     */
-    @Override
-    public Medicine randomQuote() throws MedicineException {
-        return executeQueryUnique("SELECT * FROM quotes ORDER BY RAND() LIMIT 1", null);
-    }
+
+
 }

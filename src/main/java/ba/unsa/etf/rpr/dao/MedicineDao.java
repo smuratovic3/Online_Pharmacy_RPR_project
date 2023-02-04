@@ -7,9 +7,9 @@ import ba.unsa.etf.rpr.exceptions.MedicineException;
 import java.util.List;
 
 /**
- * Dao interface for Quote domain bean
+ * Dao interface for Medicine domain bean
  *
- * @author Dino Keco
+ * @author Semina
  */
 public interface MedicineDao extends Dao<Medicine>{
 
@@ -35,5 +35,5 @@ public interface MedicineDao extends Dao<Medicine>{
      * @return random quote
      * @throws MedicineException
      */
-    Medicine randomQuote() throws MedicineException;
+
 }
