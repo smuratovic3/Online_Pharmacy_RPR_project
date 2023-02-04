@@ -2,14 +2,38 @@ package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Medicine;
+import ba.unsa.etf.rpr.exceptions.MedicineException;
 
 import java.util.List;
 
 /**
- * Dao interface for Category domain bean
+ * Dao interface for Quote domain bean
  *
- * @author Semina Muratović
+ * @author Dino Keco
  */
-public interface MedicineDao extends Dao<Medicine> {
-    List<Medicine> searchByCategory(Category category);
+public interface MedicineDao extends Dao<Medicine>{
+
+    /**
+     * Returns all medicines that contains given text.
+     *
+     * @param text search string for medicines
+     * @return list of medicines
+     */
+    List<Medicine> searchByText(String text) throws MedicineException;
+
+    /**
+     * Returns all medicines that contains given text.
+     *
+     * @param category search string for quotes
+     * @return list of medicines
+     */
+    List<Medicine> searchByCategory(Category category) throws MedicineException;
+
+    /**
+     * Return random quote from database
+     *
+     * @return random quote
+     * @throws MedicineException
+     */
+    Medicine randomQuote() throws MedicineException;
 }

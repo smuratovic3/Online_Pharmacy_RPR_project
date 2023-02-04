@@ -1,125 +1,95 @@
 package ba.unsa.etf.rpr.dao;
+
 import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Medicine;
-import java.io.FileReader;
-import java.sql.*;
-import java.util.ArrayList;
+import ba.unsa.etf.rpr.exceptions.MedicineException;
+
+import java.sql.ResultSet;
 import java.util.List;
-import java.util.Properties;
+import java.util.Map;
+import java.util.TreeMap;
 
-public class MedicineDaoSQLImpl implements MedicineDao {
+/**
+ * MySQL Implementation of DAO
+ * @author Semina Muratovic
+ */
+public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements MedicineDao {
 
-    private Connection connection;
-
-    public MedicineDaoSQLImpl(){
-        try{
-            FileReader reader = new FileReader("src/main/resources/database.properties");
-            Properties p = new Properties();
-            p.load(reader);
-            String s1 = p.getProperty("url");
-            String s2 = p.getProperty("user");
-            String s3 = p.getProperty("password");
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            this.connection = DriverManager.getConnection(s1,s2,s3);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public Medicine getById(int id) {
-        String query = "SELECT * FROM quotes WHERE id = ?";
-        try {
-            PreparedStatement stmt = this.connection.prepareStatement(query);
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) { // result set is iterator.
-                Medicine medicine = new Medicine();
-                medicine.setId(rs.getInt("id"));
-                medicine.setName(rs.getString("name"));
-                medicine.setPrice(rs.getInt("price"));
-                medicine.setDescription(rs.getString("description"));
-
-                rs.close();
-                return medicine;
-            } else {
-                return null; // if there is no elements in the result set return null
-            }
-        } catch (SQLException e) {
-            e.printStackTrace(); // poor error handling
-        }
-        return null;
-    }
-    @Override
-    public Medicine add(Medicine item) {
-        return null;
-    }
-
-    @Override
-    public Medicine update(Medicine item) {
-        return null;
-    }
-
-    @Override
-    public void delete(int id) {}
-
-    @Override
-    public List<Medicine> getAll() {return null;}
-
-
-    /**
-     * @param id for searching category for medicines
-     * @return specific Category for specific medicine from db
-     * @author Semina Muratović
-     */
-
-
-    public Category returnCategoryForId(int id) {
-        String query = "SELECT * FROM categories WHERE id = ?";
-        try {
-            PreparedStatement stmt = this.connection.prepareStatement(query);
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                Category c = new Category();
-                c.setId(rs.getInt(1));
-                c.setName(rs.getString(2));
-                return c;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+    private static MedicineDaoSQLImpl instance = null;
+    private MedicineDaoSQLImpl() {
+        super("quotes");
     }
 
     /**
-     * @param category search string for medicines
-     * @return list of medicines
-     * @author Semina Muratović
+     * @author Semina Muratovic
+     * @return MedicineDaoSQLImpl
+     * We don't need more than one object for CRUD operations on table 'quotes' so we will use Singleton
+     * This method will call private constructor in instance==null and then return that instance
+     */
+    public static MedicineDaoSQLImpl getInstance(){
+        if(instance==null)
+            instance = new MedicineDaoSQLImpl();
+        return instance;
+    }
+
+    public static void removeInstance(){
+        if(instance!=null)
+            instance=null;
+    }
+
+    @Override
+    public Medicine row2object(ResultSet rs) throws MedicineException{
+        try {
+            Medicine q = new Medicine();
+            q.setId(rs.getInt("id"));
+            q.setName(rs.getString("medicine"));
+            q.setCategory(DaoFactory.categoryDao().getById(rs.getInt("category_id")));
+            return q;
+        } catch (Exception e) {
+            throw new MedicineException(e.getMessage(), e);
+        }
+    }
+
+    /**
+     * @param object - object to be mapped
+     * @return map representation of object
      */
     @Override
-    public List<Medicine> searchByCategory(Category category) {
-        String query = "SELECT * FROM medicine WHERE category = ?";
-        try {
-            PreparedStatement stmt = this.connection.prepareStatement(query);
-            stmt.setInt(1, category.getId());
-            ResultSet rs = stmt.executeQuery();
-            ArrayList<Medicine> medicineLista = new ArrayList<>();
-            while (rs.next()) {
-                Medicine q = new Medicine();
-                q.setId(rs.getInt(1));
-                q.setName(rs.getString(2));
-                q.setPrice(rs.getInt(3));
-                q.setQuantity(rs.getInt(4));
-                q.setDescription(rs.getString(5));
+    public Map<String, Object> object2row(Medicine object) {
+        Map<String, Object> item = new TreeMap<>();
+        item.put("id", object.getId());
+        item.put("medicine", object.getName());
+        item.put("category_id", object.getCategory().getId());
+        return item;
+    }
 
-                q.setCategory(category);
-                medicineLista.add(q);
-            }
-            return medicineLista;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+    /**
+     * @param text search string for quotes
+     * @return list of quotes
+     * @author Semina Muratovic
+     */
+
+    @Override
+    public List<Medicine> searchByText(String text) throws MedicineException{
+        return executeQuery("SELECT * FROM quotes WHERE quote LIKE concat('%', ?, '%')", new Object[]{text});
+    }
+
+    /**
+     * @param category search string for quotes
+     * @return list of quotes
+     * @author Semina Muratovic
+     */
+    @Override
+    public List<Medicine> searchByCategory(Category category) throws MedicineException{
+        return executeQuery("SELECT * FROM quotes WHERE category_id = ?", new Object[]{category.getId()});
+    }
+
+    /**
+     * @return random quote from DB
+     * @throws MedicineException in case of error working with db
+     */
+    @Override
+    public Medicine randomQuote() throws MedicineException {
+        return executeQueryUnique("SELECT * FROM quotes ORDER BY RAND() LIMIT 1", null);
     }
 }
