@@ -12,7 +12,7 @@ public class AppFX extends Application
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/pocetna.fxml"));
         primaryStage.setTitle("Online Pharmacy");
-        primaryStage.setScene(new Scene(root, 600, 550));
+        primaryStage.setScene(new Scene(root, 580, 400));
         primaryStage.setResizable(false);
         primaryStage.show();
 
