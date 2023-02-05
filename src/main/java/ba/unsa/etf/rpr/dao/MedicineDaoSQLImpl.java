@@ -42,9 +42,9 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
     public Medicine row2object(ResultSet rs) throws MedicineException{
         try {
             Medicine q = new Medicine();
-            q.setId(rs.getInt("medicine_Id"));
+            q.setId(rs.getInt("id"));
             q.setName(rs.getString("medicine_Name"));
-            q.setCategory(DaoFactory.categoryDao().getById(rs.getInt("categories_Id")));
+            q.setCategory(DaoFactory.categoryDao().getById(rs.getInt("id")));
             return q;
         } catch (Exception e) {
             throw new MedicineException(e.getMessage(), e);
@@ -58,9 +58,9 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
     @Override
     public Map<String, Object> object2row(Medicine object) {
         Map<String, Object> item = new TreeMap<>();
-        item.put("medicine_Id", object.getId());
+        item.put("id", object.getId());
         item.put("medicine_Name", object.getName());
-        item.put("categories_Id", object.getCategory().getId());
+        item.put("id", object.getCategory().getId());
         return item;
     }
 
@@ -82,8 +82,10 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
      */
     @Override
     public List<Medicine> searchByCategory(Category category) throws MedicineException{
-        return executeQuery("SELECT * FROM Medicine WHERE categories_Id = ?", new Object[]{category.getId()});
+        return executeQuery("SELECT * FROM Medicine WHERE id = ?", new Object[]{category.getId()});
     }
+
+
 
 
 

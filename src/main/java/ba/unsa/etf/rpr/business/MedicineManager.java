@@ -3,8 +3,6 @@ package ba.unsa.etf.rpr.business;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
-
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,8 +24,8 @@ public class MedicineManager {
         DaoFactory.medicineDao().delete(id);
     }
 
-    public Medicine getById(int medicine_Id) throws MedicineException{
-        return DaoFactory.medicineDao().getById(medicine_Id);
+    public Medicine getById(int id) throws MedicineException{
+        return DaoFactory.medicineDao().getById(id);
     }
 
     public void update(Medicine q) throws MedicineException{
