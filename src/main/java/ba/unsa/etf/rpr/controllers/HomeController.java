@@ -1,22 +1,36 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.domain.User;
+import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class HomeController {
+    @FXML
+    public Label badUsernameIN;
+    @FXML
+    public Label badPasswordIN;
+    @FXML
+    public Label errorLabel;
+    private UserManager u = new UserManager();
 
     public Button btnCancel;
     public TextField idEmail;
@@ -37,17 +51,6 @@ public class HomeController {
             }
         });
     }
-
-   /* public void validatePassword(PasswordField idPassword) {
-        idPassword.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.length() < 5) {
-                idPassword.setStyle("poljeNijeIspravno");
-            } else {
-                idPassword.setStyle("poljeJeIspravno");
-            }
-        });
-    }
-*/
 
 
 

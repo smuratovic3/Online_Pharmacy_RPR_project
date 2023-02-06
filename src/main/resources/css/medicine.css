@@ -8,3 +8,6 @@
 .tbButton:pressed{
     -fx-background-color:gray;
 }
+.grid{
+  -fx-background-color:#fff;
+}
