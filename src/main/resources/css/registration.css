@@ -1,0 +1,32 @@
+.poljeNijeIspravno{
+    -fx-background-color:lightpink;
+}
+
+.poljeJeIspravno{
+    -fx-background-color:yellowgreen;
+}
+
+
+.buttonss {
+  -fx-background-radius: 5;
+  -fx-background-color: #3498db;
+  -fx-text-fill: white;
+  -fx-font-size: 14px;
+  -fx-padding: 10px 20px;
+}
+.buttonsss{
+ -fx-background-radius: 5;
+  -fx-background-color: lightgray;
+  -fx-text-fill: black;
+  -fx-font-size: 14px;
+  -fx-padding: 10px 20px;
+}
+.registracija{
+-fx-text-fill: #34495e;
+  -fx-font-size: 15px;
+  -fx-font-weight: bold;
+  }
+
+.registracijaPozadina{
+    -fx-background-color: #fff;
+ }

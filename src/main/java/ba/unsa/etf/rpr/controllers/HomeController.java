@@ -21,7 +21,6 @@ public class HomeController {
     public Button btnCancel;
     public TextField idEmail;
     public PasswordField idPassword;
-
     @FXML
     public void initialize(){
         idEmail.getStyleClass().add("poljeNijeIspravno");
@@ -38,6 +37,19 @@ public class HomeController {
             }
         });
     }
+
+   /* public void validatePassword(PasswordField idPassword) {
+        idPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() < 5) {
+                idPassword.setStyle("poljeNijeIspravno");
+            } else {
+                idPassword.setStyle("poljeJeIspravno");
+            }
+        });
+    }
+*/
+
+
 
     public void actionSubmit(ActionEvent actionEvent) throws IOException {
 
