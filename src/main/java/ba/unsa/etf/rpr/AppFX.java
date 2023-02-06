@@ -20,7 +20,7 @@ public class AppFX extends Application {
     }
 
     public static void main(String[] args) throws SQLException {
-       /*onnection connection = DriverManager.getConnection("jdbc:mysql://sql.freedb.tech:3306/freedb_RPR_baza",
+     /*  Connection connection = DriverManager.getConnection("jdbc:mysql://sql.freedb.tech:3306/freedb_RPR_baza",
                 "freedb_smuratovic3", "JSkRP5Z5XgZ7T*a");
         System.out.println("Connected to the database");
 
@@ -46,8 +46,10 @@ public class AppFX extends Application {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
 */
-      /*String query2 = "INSERT INTO Medicine (medicine_Name, medicineQuantity,medicine_Description) VALUES ('Analgin', 100, 'Good for a headache')";
+
+      /*String query2 = "INSERT INTO Medicine (name, quantity,description) VALUES ('Analgin', 100, 'Good for a headache')";
         try (PreparedStatement preparedStmt = connection.prepareStatement(query2)) {
             preparedStmt.setString(1, "Analgin");
             preparedStmt.setInt(2, 100);

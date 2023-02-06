@@ -1,27 +1,26 @@
 package ba.unsa.etf.rpr.dao;
+import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.domain.OnlineOrder;
-import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 
-import java.io.FileReader;
 import java.sql.*;
 import java.util.*;
 
-public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
-    private static UserDaoSQLImpl instance = null;
-    private UserDaoSQLImpl() {
-        super("User");
+public class OnlineOrderDaoSQLImpl extends AbstractDao<OnlineOrder> implements OnlineOrderDao {
+    private static OnlineOrderDaoSQLImpl instance = null;
+    private OnlineOrderDaoSQLImpl() {
+        super("OnlineOrder");
     }
 
     /**
      * @author Semina Muratovic
-     * @return UserDaoSQLImpl
+     * @return OnlineOrderDaoSQLImpl
      * We don't need more than one object for CRUD operations on table 'quotes' so we will use Singleton
      * This method will call private constructor in instance==null and then return that instance
      */
-    public static UserDaoSQLImpl getInstance(){
+    public static OnlineOrderDaoSQLImpl getInstance(){
         if(instance==null)
-            instance = new UserDaoSQLImpl();
+            instance = new OnlineOrderDaoSQLImpl();
         return instance;
     }
 
@@ -31,12 +30,13 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
     }
 
     @Override
-    public User row2object(ResultSet rs) throws MedicineException {
+    public OnlineOrder row2object(ResultSet rs) throws MedicineException {
         try {
-            User q = new User();
+            OnlineOrder q = new OnlineOrder();
             q.setId(rs.getInt("id"));
-            q.setEmail(rs.getString("email"));
-            q.setPassword(rs.getString("password"));
+            q.setPayment(rs.getInt("payment"));
+            q.setBill(rs.getInt("bill"));
+            q.setUser(DaoFactory.onlineOrderDao().getById(rs.getInt("id")).getUser());
             return q;
         } catch (Exception e) {
             throw new MedicineException(e.getMessage(), e);
@@ -48,12 +48,14 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
      * @return map representation of object
      */
     @Override
-    public Map<String, Object> object2row(User object) {
+    public Map<String, Object> object2row(OnlineOrder object) {
         Map<String, Object> item = new TreeMap<>();
         item.put("id", object.getId());
-        item.put("email", object.getEmail());
-        item.put("password", object.getPassword());
+        item.put("payment", object.getPayment());
+        item.put("bill", object.getBill());
+        item.put("id", object.getUser().getId());
         return item;
     }
+
 
 }

@@ -33,7 +33,7 @@ public class CategoryDaoSQLImpl extends AbstractDao<Category> implements Categor
         try {
             Category cat = new Category();
             cat.setId(rs.getInt("id"));
-            cat.setName(rs.getString("categories_Name"));
+            cat.setName(rs.getString("name"));
             return cat;
         } catch (SQLException e) {
             throw new MedicineException(e.getMessage(), e);
@@ -44,7 +44,7 @@ public class CategoryDaoSQLImpl extends AbstractDao<Category> implements Categor
     public Map<String, Object> object2row(Category object) {
         Map<String, Object> row = new TreeMap<>();
         row.put("id", object.getId());
-        row.put("categories_Name", object.getName());
+        row.put("name", object.getName());
         return row;
     }
 

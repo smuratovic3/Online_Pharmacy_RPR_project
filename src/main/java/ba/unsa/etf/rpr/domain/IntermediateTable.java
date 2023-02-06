@@ -1,5 +1,5 @@
 package ba.unsa.etf.rpr.domain;
-import java.util.Objects;
+
 /**
  * Intermediate table - one medicine can be in more than one order, and one order can contain more than one medicine
  * @author Semina Muratović
@@ -7,7 +7,7 @@ import java.util.Objects;
 public class IntermediateTable {
 
     private Medicine medicine;
-    private OrderOnline orderOnline;
+    private OnlineOrder orderOnline;
 
 
     public Medicine getMedicine() {
@@ -18,11 +18,11 @@ public class IntermediateTable {
         this.medicine = medicine;
     }
 
-    public OrderOnline getOrderOnline() {
+    public OnlineOrder getOrderOnline() {
         return orderOnline;
     }
 
-    public void setOrderOnline(OrderOnline orderOnline) {
+    public void setOrderOnline(OnlineOrder orderOnline) {
         this.orderOnline = orderOnline;
     }
 }

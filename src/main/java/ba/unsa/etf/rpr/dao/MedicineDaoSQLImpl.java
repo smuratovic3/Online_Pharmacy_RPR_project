@@ -43,7 +43,9 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
         try {
             Medicine q = new Medicine();
             q.setId(rs.getInt("id"));
-            q.setName(rs.getString("medicine_Name"));
+            q.setName(rs.getString("name"));
+            q.setName(rs.getString("quantity"));
+            q.setName(rs.getString("description"));
             q.setCategory(DaoFactory.categoryDao().getById(rs.getInt("id")));
             return q;
         } catch (Exception e) {
@@ -59,7 +61,9 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
     public Map<String, Object> object2row(Medicine object) {
         Map<String, Object> item = new TreeMap<>();
         item.put("id", object.getId());
-        item.put("medicine_Name", object.getName());
+        item.put("name", object.getName());
+        item.put("quantity", object.getQuantity());
+        item.put("description", object.getDescription());
         item.put("id", object.getCategory().getId());
         return item;
     }
@@ -72,7 +76,7 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
 
     @Override
     public List<Medicine> searchByText(String text) throws MedicineException{
-        return executeQuery("SELECT * FROM Medicine WHERE medicine_Name LIKE concat('%', ?, '%')", new Object[]{text});
+        return executeQuery("SELECT * FROM Medicine WHERE name LIKE concat('%', ?, '%')", new Object[]{text});
     }
 
     /**

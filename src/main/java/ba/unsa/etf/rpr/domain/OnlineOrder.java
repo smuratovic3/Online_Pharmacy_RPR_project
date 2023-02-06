@@ -5,7 +5,7 @@ import java.util.Objects;
  * Information about ordering online
  * @author Semina Muratović
  **/
-public class OrderOnline implements Idable {
+public class OnlineOrder implements Idable {
     private int id;
     private int payment;
     private int bill;
@@ -58,7 +58,7 @@ public class OrderOnline implements Idable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrderOnline orderOnline = (OrderOnline) o;
+        OnlineOrder orderOnline = (OnlineOrder) o;
         return id == orderOnline.id;
     }
 

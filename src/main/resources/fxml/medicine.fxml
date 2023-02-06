@@ -103,7 +103,7 @@
                </children>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="searchID" prefHeight="27.0" prefWidth="81.0" GridPane.columnIndex="1">
+            <TextField fx:id="searchText" prefHeight="27.0" prefWidth="81.0" GridPane.columnIndex="1">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
