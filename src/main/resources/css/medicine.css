@@ -1,0 +1,10 @@
+.tbButton{
+-fx-background-color:transparent;
+-fx-border-width:1;
+}
+.tbButton:hover{
+    -fx-background-color:lightblue;
+}
+.tbButton:pressed{
+    -fx-background-color:gray;
+}

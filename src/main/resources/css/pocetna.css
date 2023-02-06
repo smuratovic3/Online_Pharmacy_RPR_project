@@ -17,7 +17,16 @@
   -fx-font-size: 14px;
   -fx-padding: 10px 20px;
 }
-
+.labelaWelcome{
+  -fx-text-fill: #34495e;
+  -fx-font-size: 25px;
+  -fx-font-weight: normal;
+}
+.labelLoginReg{
+-fx-text-fill: #34495e;
+  -fx-font-size: 15px;
+  -fx-font-weight: normal;
+}
 
 
 

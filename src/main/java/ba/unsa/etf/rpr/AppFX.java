@@ -8,12 +8,14 @@ import javafx.stage.Stage;
 
 import java.sql.*;
 
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
+
 public class AppFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/pocetna.fxml"));
         primaryStage.setTitle("Online Pharmacy");
-        primaryStage.setScene(new Scene(root, 580, 400));
+        primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         primaryStage.setResizable(false);
         primaryStage.show();
 
@@ -48,8 +50,11 @@ public class AppFX extends Application {
         }
 
 */
+        /*Connection connection = DriverManager.getConnection("jdbc:mysql://sql.freedb.tech:3306/freedb_RPR_baza",
+                "freedb_smuratovic3", "JSkRP5Z5XgZ7T*a");
+        System.out.println("Connected to the database");
 
-      /*String query2 = "INSERT INTO Medicine (name, quantity,description) VALUES ('Analgin', 100, 'Good for a headache')";
+      String query2 = "INSERT INTO Medicine (name, quantity,description) VALUES ('Analgin', 100, 'Good for a headache')";
         try (PreparedStatement preparedStmt = connection.prepareStatement(query2)) {
             preparedStmt.setString(1, "Analgin");
             preparedStmt.setInt(2, 100);
@@ -58,7 +63,9 @@ public class AppFX extends Application {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
 */
+
 
 
 

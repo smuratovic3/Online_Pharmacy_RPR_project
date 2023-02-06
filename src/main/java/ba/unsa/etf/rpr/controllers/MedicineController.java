@@ -6,30 +6,29 @@ import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+
 
 public class MedicineController {
 
-
     public TableView medicineTable;
-    private final MedicineManager medicineManager = new MedicineManager();
     public TextField searchText;
-
-    /*public TableColumn<Medicine, Integer> id;
-     public TableColumn<Medicine, String> name;
-     public TableColumn<Medicine, Integer>  quantity;
-     public TableColumn<Medicine, String>  description;
+    private final MedicineManager medicineManager = new MedicineManager();
 
 
-     public void initialize() {
-         id.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("id"));
-         name.setCellValueFactory(new PropertyValueFactory<Medicine, String>("medicine_Name"));
-         quantity.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("medicine_Quantity"));
-         description.setCellValueFactory(new PropertyValueFactory<Medicine, String>("medicine_Description"));
+    public TableColumn<Medicine, Integer> idColumn;
+     public TableColumn<Medicine, String> nameColumn;
+     public TableColumn<Medicine, Integer>  quantityColumn;
+     public TableColumn<Medicine, String>  descriptionColumn;
 
 
-     }
-*/
+    /* public void initialize() {
+         idColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("id"));
+         nameColumn.setCellValueFactory(new PropertyValueFactory<Medicine, String>("name"));
+         quantityColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("quantity"));
+         descriptionColumn.setCellValueFactory(new PropertyValueFactory<Medicine, String>("description"));
+
+
+     }*/
     public void searchByText(ActionEvent actionEvent) {
         try {
             medicineTable.setItems(FXCollections.observableList(medicineManager.searchMedicine(searchText.getText())));
