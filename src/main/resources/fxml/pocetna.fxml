@@ -29,7 +29,7 @@
             </ImageView>
           <Button fx:id="login" mnemonicParsing="false" onAction="#actionLoginWindow" styleClass="tbButton" text="Log in" />
             <Separator orientation="VERTICAL" />
-            <Button fx:id="about" mnemonicParsing="false" styleClass="tbButton" text="About us" />
+            <Button fx:id="about" mnemonicParsing="false" onAction="#actionAboutUs" styleClass="tbButton" text="About us" />
             <Separator orientation="VERTICAL" />
             <Button fx:id="help" mnemonicParsing="false" styleClass="tbButton" text="Help" />
         </items>

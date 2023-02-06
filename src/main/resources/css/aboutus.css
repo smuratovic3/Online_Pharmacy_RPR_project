@@ -1,0 +1,17 @@
+.pozadina{
+-fx-background-color: #fff;
+}
+
+.labele{
+-fx-text-fill: #34495e;
+  -fx-font-size: 13px;
+  -fx-font-weight: bold;
+  }
+
+.close{
+ -fx-background-radius: 2;
+  -fx-background-color: #3498db;
+  -fx-text-fill: white;
+  -fx-font-size: 10px;
+  -fx-padding: 5px 10px;
+  }
