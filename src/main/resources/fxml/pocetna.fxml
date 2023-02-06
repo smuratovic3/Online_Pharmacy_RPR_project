@@ -31,7 +31,7 @@
             <Separator orientation="VERTICAL" />
             <Button fx:id="about" mnemonicParsing="false" onAction="#actionAboutUs" styleClass="tbButton" text="About us" />
             <Separator orientation="VERTICAL" />
-            <Button fx:id="help" mnemonicParsing="false" styleClass="tbButton" text="Help" />
+            <Button fx:id="help" mnemonicParsing="false" onAction="#helpAction" styleClass="tbButton" text="Help" />
         </items>
          <BorderPane.margin>
             <Insets />
