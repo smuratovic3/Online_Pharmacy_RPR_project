@@ -22,50 +22,44 @@ public class AppFX extends Application {
     }
 
     public static void main(String[] args) throws SQLException {
-     /*  Connection connection = DriverManager.getConnection("jdbc:mysql://sql.freedb.tech:3306/freedb_RPR_baza",
+       Connection connection = DriverManager.getConnection("jdbc:mysql://sql.freedb.tech:3306/freedb_RPR_baza",
                 "freedb_smuratovic3", "JSkRP5Z5XgZ7T*a");
         System.out.println("Connected to the database");
 
         String query = "SELECT * FROM Medicine";
-        try (Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
-            ResultSetMetaData metaData = rs.getMetaData();
-            int columnCount = metaData.getColumnCount();
-            for (int i = 1; i <= columnCount; i++) {
-                System.out.println(metaData.getColumnName(i) + " " + metaData.getColumnTypeName(i));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-       /* String query2 = "SELECT * FROM Categories";
-        try (Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(query2)) {
-            ResultSetMetaData metaData = rs.getMetaData();
-            int columnCount = metaData.getColumnCount();
-            for (int i = 1; i <= columnCount; i++) {
-                System.out.println(metaData.getColumnName(i) + " " + metaData.getColumnTypeName(i));
-            }
+        try {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(query);
+                while(rs.next()){
+                    Integer id = rs.getInt(1);
+                    String name = rs.getString(2);
+                    System.out.println(id + " " + name);
+
+                }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-*/
-        /*Connection connection = DriverManager.getConnection("jdbc:mysql://sql.freedb.tech:3306/freedb_RPR_baza",
-                "freedb_smuratovic3", "JSkRP5Z5XgZ7T*a");
-        System.out.println("Connected to the database");
 
-      String query2 = "INSERT INTO Medicine (name, quantity,description) VALUES ('Analgin', 100, 'Good for a headache')";
-        try (PreparedStatement preparedStmt = connection.prepareStatement(query2)) {
-            preparedStmt.setString(1, "Analgin");
-            preparedStmt.setInt(2, 100);
-            preparedStmt.setString(3, "Good for a headache");
+
+/*
+      String query2 = "INSERT INTO Medicine  VALUES (?,?, ?, ?, ?,?)";
+        try {
+            PreparedStatement preparedStmt = connection.prepareStatement(query2);
+            preparedStmt.setInt(1, 10);
+            preparedStmt.setString(2, "Analgin");
+            preparedStmt.setInt(3, 10);
+            preparedStmt.setInt(4, 100);
+            preparedStmt.setString(5, "Good for a headache");
+            preparedStmt.setInt(6, 1);
+
             preparedStmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-*/
 
+*/
 
 
 
