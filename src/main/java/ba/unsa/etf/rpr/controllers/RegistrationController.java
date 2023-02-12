@@ -10,16 +10,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class RegistrationController {
     public Button btnCancel;
     public TextField idEmail;
 
-    public void actionSubmit(ActionEvent actionEvent) throws IOException {
+    public void actionSubmit(ActionEvent actionEvent) throws IOException
+    {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/medicine.fxml"));
         stage.setTitle("Home page");
@@ -28,12 +27,14 @@ public class RegistrationController {
         stage.show();
     }
 
-    public void actionClose(ActionEvent actionEvent) {
+    public void actionClose(ActionEvent actionEvent)
+    {
         Stage stage =(Stage)btnCancel.getScene().getWindow();
         stage.close();
     }
     @FXML
-    public void initialize(){
+    public void initialize()
+    {
         idEmail.getStyleClass().add("poljeNijeIspravno");
         idEmail.textProperty().addListener(new ChangeListener<String>() {
             @Override
