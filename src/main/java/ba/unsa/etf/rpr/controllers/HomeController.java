@@ -38,7 +38,8 @@ public class HomeController {
     @FXML
     public void initialize(){
         idEmail.getStyleClass().add("poljeNijeIspravno");
-        idEmail.textProperty().addListener(new ChangeListener<String>() {
+        idEmail.textProperty().addListener(new ChangeListener<String>()
+        {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
                 if(idEmail.getText().trim().isEmpty()){
@@ -54,19 +55,18 @@ public class HomeController {
 
 
 
-    public void actionSubmit(ActionEvent actionEvent) throws IOException {
-
-
+    public void actionSubmit(ActionEvent actionEvent) throws IOException
+    {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/medicine.fxml"));
         stage.setTitle("Home page");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
-
     }
 
-    public void actionClose(ActionEvent actionEvent) {
+    public void actionClose(ActionEvent actionEvent)
+    {
         Stage stage =(Stage)btnCancel.getScene().getWindow();
         stage.close();
     }

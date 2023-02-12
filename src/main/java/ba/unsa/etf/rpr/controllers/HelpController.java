@@ -7,7 +7,8 @@ import javafx.stage.Stage;
 public class HelpController {
     public Button btnClose;
 
-    public void closeHelp(ActionEvent actionEvent) {
+    public void closeHelp(ActionEvent actionEvent)
+    {
         Stage stage =(Stage)btnClose.getScene().getWindow();
         stage.close();
     }
