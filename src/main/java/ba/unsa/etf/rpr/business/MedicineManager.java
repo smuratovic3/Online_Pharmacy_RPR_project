@@ -12,27 +12,33 @@ import java.util.List;
  */
 public class MedicineManager {
 
-    public List<Medicine> getAll() throws MedicineException {
+    public List<Medicine> getAll() throws MedicineException
+    {
         return DaoFactory.medicineDao().getAll();
     }
 
-    public  List<Medicine> searchMedicine(String text) throws MedicineException {
+    public  List<Medicine> searchMedicine(String text) throws MedicineException
+    {
         return DaoFactory.medicineDao().searchByText(text);
     }
 
-    public void delete(int id) throws MedicineException{
+    public void delete(int id) throws MedicineException
+    {
         DaoFactory.medicineDao().delete(id);
     }
 
-    public Medicine getById(int id) throws MedicineException{
+    public Medicine getById(int id) throws MedicineException
+    {
         return DaoFactory.medicineDao().getById(id);
     }
 
-    public void update(Medicine q) throws MedicineException{
+    public void update(Medicine q) throws MedicineException
+    {
         DaoFactory.medicineDao().update(q);
     }
 
-    public Medicine add(Medicine q) throws MedicineException{
+    public Medicine add(Medicine q) throws MedicineException
+    {
         return DaoFactory.medicineDao().add(q);
     }
 
