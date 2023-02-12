@@ -28,16 +28,16 @@ public class MedicineController {
      public TableColumn<Medicine, String>  descriptionColumn  = new TableColumn<>();
 
 @FXML
-    public void initialize() {
-
+    public void initialize()
+{
          nameColumn.setCellValueFactory(new PropertyValueFactory<Medicine, String>("name"));
-    priceColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("price"));
+         priceColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("price"));
          quantityColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("quantity"));
          descriptionColumn.setCellValueFactory(new PropertyValueFactory<Medicine, String>("description"));
 
-
-     }
-    public void searchByText(ActionEvent actionEvent) {
+}
+    public void searchByText(ActionEvent actionEvent)
+    {
         try {
             List<Medicine> lista =medicineManager.searchMedicine(searchText.getText());
             if(lista.size() > 0){
