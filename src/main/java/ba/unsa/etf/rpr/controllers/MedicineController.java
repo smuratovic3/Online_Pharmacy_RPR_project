@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.business.MedicineManager;
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
+import com.mysql.cj.x.protobuf.MysqlxCrud;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,16 +34,50 @@ public class MedicineController {
      public TableColumn<Medicine, Integer>  quantityColumn  = new TableColumn<>();
     @FXML
      public TableColumn<Medicine, String>  descriptionColumn  = new TableColumn<>();
+    @FXML
+    public TableColumn<Medicine, Integer> orderColumn;
 
-@FXML
+
+
+    @FXML
     public void initialize()
 {
          nameColumn.setCellValueFactory(new PropertyValueFactory<Medicine, String>("name"));
          priceColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("price"));
          quantityColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("quantity"));
          descriptionColumn.setCellValueFactory(new PropertyValueFactory<Medicine, String>("description"));
-         refreshMedicine();
+         /*orderColumn.setCellFactory(new ButtonCellFactory(editEvent -> {
+        int trainId = Integer.parseInt(((Button)editEvent.getSource()).getUserData().toString());
+        viewButtonOnAction(trainId);
+    }));*/
+    class OrderCell extends TableCell<Medicine, Integer> {
+        private Button btn = new Button("Order");
+        public OrderCell() {
+            btn.setOnAction(event -> {
+                Medicine medicine = getTableView().getItems().get(getIndex());
+                // Add your logic here to handle the button click event
+            });
+        }
+        @Override
+        protected void updateItem(Integer item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty) {
+                setGraphic(null);
+            } else {
+                setGraphic(btn);
+            }
+        }
+    }
+    orderColumn.setCellFactory(column -> new OrderCell());
+
+
+
+    refreshMedicine();
 }
+
+    private void viewButtonOnAction(int trainId) {
+        
+    }
 
     void refreshMedicine() {
         try {
