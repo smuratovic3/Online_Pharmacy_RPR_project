@@ -7,7 +7,8 @@ import javafx.stage.Stage;
 public class AboutUsController {
     public Button btnClose;
 
-    public void closeAboutUs(ActionEvent actionEvent) {
+    public void closeAboutUs(ActionEvent actionEvent)
+    {
         Stage stage =(Stage)btnClose.getScene().getWindow();
         stage.close();
     }

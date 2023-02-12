@@ -25,7 +25,8 @@ public class CategoryController {
     public TextField categoryName;
 
     @FXML
-    public void initialize() {
+    public void initialize()
+    {
         try {
             refreshCategories();
             categoriesList.getSelectionModel().selectedItemProperty().addListener((obs, o, n)->{
@@ -38,7 +39,8 @@ public class CategoryController {
         }
     }
 
-    public void addCategory(ActionEvent event){
+    public void addCategory(ActionEvent event)
+    {
         try {
             Category c = new Category();
             c.setName(categoryName.getText());
@@ -51,7 +53,8 @@ public class CategoryController {
         }
     }
 
-    public void updateCategory(ActionEvent event){
+    public void updateCategory(ActionEvent event)
+    {
         try {
             Category cat = categoriesList.getSelectionModel().getSelectedItem();
             cat.setName(categoryName.getText());
@@ -62,7 +65,8 @@ public class CategoryController {
         }
     }
 
-    public void deleteCategory(ActionEvent event){
+    public void deleteCategory(ActionEvent event)
+    {
         try {
             Category cat = categoriesList.getSelectionModel().getSelectedItem();
             manager.delete(cat.getId());
@@ -73,7 +77,8 @@ public class CategoryController {
         }
     }
 
-    private void refreshCategories() throws MedicineException{
+    private void refreshCategories() throws MedicineException
+    {
         try {
             categoriesList.setItems(FXCollections.observableList(manager.getAll()));
             categoryName.setText("");
