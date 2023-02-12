@@ -16,22 +16,25 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
     /**
      * @author Semina Muratovic
      * @return UserDaoSQLImpl
-     * We don't need more than one object for CRUD operations on table 'quotes' so we will use Singleton
+     * We don't need more than one object for CRUD operations on table 'User' so we will use Singleton
      * This method will call private constructor in instance==null and then return that instance
      */
-    public static UserDaoSQLImpl getInstance(){
+    public static UserDaoSQLImpl getInstance()
+    {
         if(instance==null)
             instance = new UserDaoSQLImpl();
         return instance;
     }
 
-    public static void removeInstance(){
+    public static void removeInstance()
+    {
         if(instance!=null)
             instance=null;
     }
 
     @Override
-    public User row2object(ResultSet rs) throws MedicineException {
+    public User row2object(ResultSet rs) throws MedicineException
+    {
         try {
             User q = new User();
             q.setId(rs.getInt("id"));
@@ -48,7 +51,8 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
      * @return map representation of object
      */
     @Override
-    public Map<String, Object> object2row(User object) {
+    public Map<String, Object> object2row(User object)
+    {
         Map<String, Object> item = new TreeMap<>();
         item.put("id", object.getId());
         item.put("email", object.getEmail());
