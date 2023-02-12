@@ -18,7 +18,8 @@ public class LoginController {
 
 
 
-    public void actionLoginWindow(ActionEvent actionEvent) throws IOException {
+    public void actionLoginWindow(ActionEvent actionEvent) throws IOException
+    {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         stage.setTitle("Log in");
@@ -28,7 +29,8 @@ public class LoginController {
     }
 
 
-    public void actionRegisterWindow(ActionEvent actionEvent) throws IOException {
+    public void actionRegisterWindow(ActionEvent actionEvent) throws IOException
+    {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/registration.fxml"));
         stage.setTitle("Registration");
@@ -37,7 +39,8 @@ public class LoginController {
         stage.show();
     }
 
-    public void actionAboutUs(ActionEvent actionEvent) throws IOException {
+    public void actionAboutUs(ActionEvent actionEvent) throws IOException
+    {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/aboutus.fxml"));
         stage.setTitle("About us");
@@ -47,7 +50,8 @@ public class LoginController {
 
     }
 
-    public void helpAction(ActionEvent actionEvent) throws IOException {
+    public void helpAction(ActionEvent actionEvent) throws IOException
+    {
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/help.fxml"));
         stage.setTitle("Help");
