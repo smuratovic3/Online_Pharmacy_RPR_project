@@ -9,10 +9,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.List;
+
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 
 public class MedicineController {
@@ -46,16 +53,23 @@ public class MedicineController {
          priceColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("price"));
          quantityColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("quantity"));
          descriptionColumn.setCellValueFactory(new PropertyValueFactory<Medicine, String>("description"));
-         /*orderColumn.setCellFactory(new ButtonCellFactory(editEvent -> {
-        int trainId = Integer.parseInt(((Button)editEvent.getSource()).getUserData().toString());
-        viewButtonOnAction(trainId);
-    }));*/
-    class OrderCell extends TableCell<Medicine, Integer> {
+        class OrderCell extends TableCell<Medicine, Integer> {
         private Button btn = new Button("Order");
         public OrderCell() {
             btn.setOnAction(event -> {
                 Medicine medicine = getTableView().getItems().get(getIndex());
                 // Add your logic here to handle the button click event
+                Stage stage = new Stage();
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("/fxml/aboutus.fxml"));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                stage.setTitle("Log in");
+                stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+                stage.setResizable(false);
+                stage.show();
             });
         }
         @Override
@@ -74,6 +88,7 @@ public class MedicineController {
 
     refreshMedicine();
 }
+
 
     private void viewButtonOnAction(int trainId) {
         
