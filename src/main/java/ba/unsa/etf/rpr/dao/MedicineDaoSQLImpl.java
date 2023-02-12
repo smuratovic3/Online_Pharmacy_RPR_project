@@ -47,7 +47,7 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
             q.setPrice(rs.getInt("price"));
             q.setQuantity(rs.getInt("quantity"));
             q.setDescription(rs.getString("description"));
-            
+
             return q;
         } catch (Exception e) {
             throw new MedicineException(e.getMessage(), e);
