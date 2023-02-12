@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.MedicineManager;
+import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.collections.FXCollections;
@@ -14,17 +15,23 @@ import java.util.List;
 
 
 public class MedicineController {
-
+    @FXML
     public TableView<Medicine> medicineTable;
     public ObservableList<Medicine> lista = FXCollections.observableArrayList();
     public TextField searchText;
     private final MedicineManager medicineManager = new MedicineManager();
+    private final UserManager  userManager = new UserManager();
 
 
 
+
+    @FXML
      public TableColumn<Medicine, String> nameColumn  = new TableColumn<>();
+    @FXML
     public TableColumn<Medicine, Integer> priceColumn  = new TableColumn<>();
+    @FXML
      public TableColumn<Medicine, Integer>  quantityColumn  = new TableColumn<>();
+    @FXML
      public TableColumn<Medicine, String>  descriptionColumn  = new TableColumn<>();
 
 @FXML
@@ -34,8 +41,17 @@ public class MedicineController {
          priceColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("price"));
          quantityColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("quantity"));
          descriptionColumn.setCellValueFactory(new PropertyValueFactory<Medicine, String>("description"));
-
+         refreshMedicine();
 }
+
+    void refreshMedicine() {
+        try {
+            medicineTable.setItems(FXCollections.observableList(medicineManager.getAll()));
+            medicineTable.refresh();
+        } catch (MedicineException e) {
+            e.printStackTrace();
+        }
+    }
     public void searchByText(ActionEvent actionEvent)
     {
         try {
