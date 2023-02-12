@@ -60,4 +60,23 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
         return item;
     }
 
+    @Override
+    public User findEmail(String emailField) throws MedicineException{
+        String insert = "SELECT id from User where email='" + emailField +"'";
+        try {
+            PreparedStatement stmt = getConnection().prepareStatement(insert, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()) { // result set is iterator.
+                return getById(rs.getInt(1));
+            }
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+
+
 }

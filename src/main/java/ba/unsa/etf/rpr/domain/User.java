@@ -12,13 +12,23 @@ public class User implements Idable {
 
     private String password;
 
-
-    public int getId() {
-        return id;
+    public User(int id, String email, String password) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
     }
 
+    public User() {
+    }
+
+
+
+    @Override
     public void setId(int id) {
         this.id = id;
+    }
+    public int getId() {
+        return id;
     }
 
 

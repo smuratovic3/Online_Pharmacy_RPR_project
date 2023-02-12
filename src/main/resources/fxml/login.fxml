@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="448.0" prefWidth="613.0" styleClass="LoginPozadina" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.HomeController">
+<BorderPane prefHeight="448.0" prefWidth="613.0" styleClass="LoginPozadina" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LoginController">
     <stylesheets>
         <URL value="@/css/login.css" />
 
@@ -30,21 +30,26 @@
           <rowConstraints>
               <RowConstraints maxHeight="164.2000030517578" minHeight="0.0" prefHeight="61.0" vgrow="SOMETIMES" />
               <RowConstraints maxHeight="174.8" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
+              <RowConstraints maxHeight="174.8" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
               <RowConstraints maxHeight="141.2000030517578" minHeight="9.0" prefHeight="67.0" vgrow="SOMETIMES" />
-              <RowConstraints maxHeight="114.5999816894531" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="141.2000030517578" minHeight="9.0" prefHeight="67.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="114.5999816894531" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
           </rowConstraints>
           <padding>
               <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
           </padding>
           <children>
               <Label text="E-mail:" GridPane.rowIndex="1" />
-              <Label text="Password:" GridPane.rowIndex="2" />
-              <TextField fx:id="idEmail" layoutX="100.0" layoutY="20.0" styleClass="formControl" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-              <PasswordField fx:id="idPassword" styleClass="formControl" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+              <Label text="Password:" GridPane.rowIndex="3" />
+              <TextField fx:id="emailField" layoutX="100.0" layoutY="20.0" styleClass="formControl" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+              <PasswordField fx:id="passwordField" styleClass="formControl" GridPane.columnIndex="1" GridPane.rowIndex="3" />
               <Label maxHeight="40.0" maxWidth="443.0" minHeight="30.0" minWidth="200.0" prefHeight="40.0" prefWidth="358.0" styleClass="loginWelcome" text="Welcome to Online Pharmacy!" GridPane.columnIndex="1" GridPane.columnSpan="2">
                <padding>
                   <Insets bottom="10.0" left="25.0" right="10.0" top="10.0" />
                </padding></Label>
+            <Label fx:id="badEmailIN" prefHeight="17.0" prefWidth="354.0" textFill="#d00c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="badPasswordIN" prefHeight="17.0" prefWidth="389.0" textFill="#c30f0f" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="255.0" textFill="#b0c320" GridPane.columnIndex="1" GridPane.rowIndex="5" />
           </children>
       </GridPane>
    </center>

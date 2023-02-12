@@ -24,50 +24,73 @@ import java.util.Objects;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class HomeController {
-    @FXML
-    public Label badUsernameIN;
-    @FXML
-    public Label badPasswordIN;
-    @FXML
-    public Label errorLabel;
-    private UserManager u = new UserManager();
 
-    public Button btnCancel;
-    public TextField idEmail;
-    public PasswordField idPassword;
+
+
+    public TextField emailField;
+    public PasswordField passwordField;
     @FXML
     public void initialize(){
-        idEmail.getStyleClass().add("poljeNijeIspravno");
-        idEmail.textProperty().addListener(new ChangeListener<String>()
+       /*emailField.getStyleClass().add("poljeNijeIspravno");
+        emailField.textProperty().addListener(new ChangeListener<String>()
         {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                if(idEmail.getText().trim().isEmpty()){
-                    idEmail.getStyleClass().removeAll("poljeJeIspravno");
-                    idEmail.getStyleClass().add("poljeNijeIspravno");
+                if(emailField.getText().trim().isEmpty()){
+                    emailField.getStyleClass().removeAll("poljeJeIspravno");
+                    emailField.getStyleClass().add("poljeNijeIspravno");
                 }else{
-                    idEmail.getStyleClass().removeAll("poljeNijeIspravno");
-                    idEmail.getStyleClass().add("poljeJeIspravno");
+                    emailField.getStyleClass().removeAll("poljeNijeIspravno");
+                    emailField.getStyleClass().add("poljeJeIspravno");
                 }
             }
-        });
+        });*/
     }
-
-
-
-    public void actionSubmit(ActionEvent actionEvent) throws IOException
+    public void actionLoginWindow(ActionEvent actionEvent) throws IOException
     {
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/medicine.fxml"));
-        stage.setTitle("Home page");
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
+        stage.setTitle("Log in");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
     }
 
-    public void actionClose(ActionEvent actionEvent)
+    public void actionRegisterWindow(ActionEvent actionEvent) throws IOException
     {
-        Stage stage =(Stage)btnCancel.getScene().getWindow();
-        stage.close();
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/registration.fxml"));
+        stage.setTitle("Registration");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
     }
+
+    public void actionAboutUs(ActionEvent actionEvent) throws IOException
+    {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/aboutus.fxml"));
+        stage.setTitle("About us");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
+
+    }
+
+    public void helpAction(ActionEvent actionEvent) throws IOException
+    {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/help.fxml"));
+        stage.setTitle("Help");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
+    }
+
+
+
+
+
+
+
 }
