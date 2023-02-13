@@ -6,6 +6,10 @@ import ba.unsa.etf.rpr.exceptions.MedicineException;
 import java.util.List;
 
 public class UserManager {
+    public static User findEmail(String emailField) throws MedicineException {
+        return DaoFactory.userDao().findEmail(emailField);
+    }
+
     public void delete(int UserId) throws MedicineException {
         try {
             DaoFactory.userDao().delete(UserId);
@@ -17,7 +21,7 @@ public class UserManager {
         }
 
     }
-    public User add(User r) throws MedicineException {
+    public static User add(User r) throws MedicineException {
         return DaoFactory.userDao().add(r);
     }
 

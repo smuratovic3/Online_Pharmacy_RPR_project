@@ -61,7 +61,7 @@ public class LoginController {
     }
 
     @FXML
-    private void actionSubmit() throws MedicineException, NoSuchAlgorithmException {
+    private void actionSubmit() throws MedicineException{
 
         List<User> listaUsera = userManager.getAll();
 
