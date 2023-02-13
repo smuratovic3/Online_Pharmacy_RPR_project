@@ -28,10 +28,10 @@
               <ColumnConstraints />
           </columnConstraints>
           <rowConstraints>
-              <RowConstraints maxHeight="164.2000030517578" minHeight="0.0" prefHeight="61.0" vgrow="SOMETIMES" />
-              <RowConstraints maxHeight="174.8" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-              <RowConstraints maxHeight="174.8" minHeight="10.0" prefHeight="70.0" vgrow="SOMETIMES" />
-              <RowConstraints maxHeight="141.2000030517578" minHeight="9.0" prefHeight="67.0" vgrow="SOMETIMES" />
+              <RowConstraints maxHeight="164.2000030517578" minHeight="0.0" prefHeight="59.0" vgrow="SOMETIMES" />
+              <RowConstraints maxHeight="174.8" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
+              <RowConstraints maxHeight="174.8" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+              <RowConstraints maxHeight="141.2000030517578" minHeight="9.0" prefHeight="46.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="141.2000030517578" minHeight="9.0" prefHeight="67.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="114.5999816894531" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
           </rowConstraints>
@@ -50,6 +50,11 @@
             <Label fx:id="badEmailIN" prefHeight="17.0" prefWidth="354.0" textFill="#d00c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label fx:id="badPasswordIN" prefHeight="17.0" prefWidth="389.0" textFill="#c30f0f" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="255.0" textFill="#b0c320" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ImageView fitHeight="49.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/userLogo.png" />
+               </image>
+            </ImageView>
           </children>
       </GridPane>
    </center>
