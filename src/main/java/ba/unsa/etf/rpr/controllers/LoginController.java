@@ -54,15 +54,11 @@ public class LoginController {
         });
     }
 
-
-
     public void actionClose(ActionEvent actionEvent)
     {
         Stage stage =(Stage)btnCancel.getScene().getWindow();
         stage.close();
     }
-
-
 
     @FXML
     private void actionSubmit() throws MedicineException, NoSuchAlgorithmException {
