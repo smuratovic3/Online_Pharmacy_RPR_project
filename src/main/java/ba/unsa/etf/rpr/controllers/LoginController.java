@@ -3,6 +3,8 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +35,24 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
     UserManager userManager = new UserManager();
+
+    @FXML
+    public void initialize()
+    {
+        emailField.getStyleClass().add("poljeNijeIspravno");
+        emailField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                if(emailField.getText().trim().isEmpty()){
+                    emailField.getStyleClass().removeAll("poljeJeIspravno");
+                    emailField.getStyleClass().add("poljeNijeIspravno");
+                }else{
+                    emailField.getStyleClass().removeAll("poljeNijeIspravno");
+                    emailField.getStyleClass().add("poljeJeIspravno");
+                }
+            }
+        });
+    }
 
 
 
