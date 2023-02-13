@@ -14,6 +14,29 @@ public class User implements Idable {
     private String email;
     private String password;
 
+
+    public User(int id,String name, String surname, String address, int phone, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User() {
+    }
+
+
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId() {
+        return id;
+    }
     public String getName() {
         return name;
     }
@@ -46,30 +69,6 @@ public class User implements Idable {
         this.phone = phone;
     }
 
-
-
-    public User(int id, String email, String password) {
-        this.id = id;
-
-        this.email = email;
-        this.password = password;
-    }
-
-    public User() {
-    }
-
-
-
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-    public int getId() {
-        return id;
-    }
-
-
-
     public String getEmail() {
         return email;
     }
@@ -77,7 +76,6 @@ public class User implements Idable {
     public void setEmail(String email) {
         this.email = email;
     }
-
 
     public String getPassword() {
         return password;
@@ -90,6 +88,10 @@ public class User implements Idable {
     public String toString() {
         return "User - " +
                 "id=" + id +
+                "name=" + name +
+                "surname=" + surname +
+                "address=" + address +
+                "phone=" + phone +
                 ", email=" + email +
                 '.';
     }
@@ -104,7 +106,7 @@ public class User implements Idable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id,  email,password);
+        return Objects.hash(id,name,surname,address,phone,email,password);
     }
 
 
