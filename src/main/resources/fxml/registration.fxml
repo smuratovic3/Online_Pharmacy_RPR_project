@@ -33,7 +33,7 @@
          <children>
             <Label text="E-mail:" GridPane.rowIndex="1" />
             <TextField fx:id="idEmail" prefHeight="25.0" prefWidth="214.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label prefHeight="17.0" prefWidth="205.0" text="You will get an email with a password!" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label prefHeight="17.0" prefWidth="205.0" text="You will get an email with a password!" textFill="#1959fa" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ImageView fitHeight="84.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/userLogo.png" />
