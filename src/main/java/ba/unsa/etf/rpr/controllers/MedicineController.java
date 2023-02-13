@@ -4,7 +4,6 @@ import ba.unsa.etf.rpr.business.MedicineManager;
 import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
-import com.mysql.cj.x.protobuf.MysqlxCrud;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,10 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.List;
-
+import java.util.Objects;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 
@@ -62,11 +60,11 @@ public class MedicineController {
                 Stage stage = new Stage();
                 Parent root = null;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("/fxml/aboutus.fxml"));
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/aboutus.fxml")));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-                stage.setTitle("Log in");
+                stage.setTitle("Online order");
                 stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
                 stage.setResizable(false);
                 stage.show();
@@ -84,15 +82,8 @@ public class MedicineController {
     }
     orderColumn.setCellFactory(column -> new OrderCell());
 
-
-
-    refreshMedicine();
+        refreshMedicine();
 }
-
-
-    private void viewButtonOnAction(int trainId) {
-        
-    }
 
     void refreshMedicine() {
         try {
