@@ -33,6 +33,11 @@ public class RegistrationController {
     public TextField emailField;
     public PasswordField passwordField;
     public Label messageLabel2;
+    public TextField nameField;
+    public TextField surnameField;
+    public TextField addressField;
+
+    public TextField phoneField;
 
     UserManager userManager = new UserManager();
 
@@ -44,10 +49,35 @@ public class RegistrationController {
     public void actionSubmit(ActionEvent actionEvent) throws IOException, MedicineException {
 
         //Retrieve user input form form field
+        String nameInput = nameField.getText();
+        String surnameInput = surnameField.getText();
+        String addressInput = addressField.getText();
+        String phoneInput = phoneField.getText();
         String emailInput = emailField.getText();
         String passwordInput = passwordField.getText();
         boolean check = false;
 
+        // Validate the input
+        if (Objects.equals(nameField.getText(), "")) {
+            // Display an error message
+            messageLabel1.setText("Name can't be empty.");
+            check = true;
+        }
+        if (Objects.equals(surnameField.getText(), "")) {
+            // Display an error message
+            messageLabel1.setText("Surname can't be empty.");
+            check = true;
+        }
+        if (Objects.equals(addressField.getText(), "")) {
+            // Display an error message
+            messageLabel1.setText("Address can't be empty.");
+            check = true;
+        }
+        if (Objects.equals(phoneField.getText(), "")) {
+            // Display an error message
+            messageLabel1.setText("Phone number can't be empty.");
+            check = true;
+        }
 
         //validate the input
         if (Objects.equals(emailField.getText(), "")) {
@@ -72,8 +102,13 @@ public class RegistrationController {
         if (!check) {
             // Create a new user data object and set the instance variables
             User user = new User();
+            user.setName(nameInput);
+            user.setSurname(surnameInput);
+            user.setAddress(addressInput);
+            user.setPhone(Integer.parseInt(phoneInput));
             user.setEmail(emailInput);
             user.setPassword(passwordInput);
+
 
             try {
                 FileReader reader = new FileReader("src/main/resources/database.properties");
@@ -114,10 +149,40 @@ public class RegistrationController {
     public void initialize()
     {
         // Add an event listener to the name field
+        nameField.textProperty().addListener((observable, oldValue, newValue) -> {
+            // Clear the error message when the name field is changed
+            messageLabel1.setText("");
+        });
+
+        // Add an event listener to the surname field
+        surnameField.textProperty().addListener((observable, oldValue, newValue) -> {
+            // Clear the error message when the surname field is changed
+            messageLabel1.setText("");
+        });
+
+        // Add an event listener to the address field
+        addressField.textProperty().addListener((observable, oldValue, newValue) -> {
+            // Clear the error message when the username field is changed
+            messageLabel1.setText("");
+        });
+        // Add an event listener to the phone number field
+        phoneField.textProperty().addListener((observable, oldValue, newValue) -> {
+            // Clear the error message when the username field is changed
+            messageLabel1.setText("");
+        });
+
+        // Add an event listener to the email field
         emailField.textProperty().addListener((observable, oldValue, newValue) -> {
             // Clear the error message when the name field is changed
             messageLabel1.setText("");
         });
+
+        // Add an event listener to the password field
+        passwordField.textProperty().addListener((observable, oldValue, newValue) -> {
+            // Clear the error message when the password field is changed
+            messageLabel2.setText("");
+        });
+
 
         emailField.getStyleClass().add("poljeNijeIspravno");
         emailField.textProperty().addListener(new ChangeListener<String>() {

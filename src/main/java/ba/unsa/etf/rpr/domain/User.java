@@ -10,7 +10,7 @@ public class User implements Idable {
     private String name;
     private String surname;
     private String address;
-    private int number;
+    private int phone;
     private String email;
     private String password;
 
@@ -38,12 +38,12 @@ public class User implements Idable {
         this.address = address;
     }
 
-    public int getNumber() {
-        return number;
+    public int getPhone() {
+        return phone;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setPhone(int phone) {
+        this.phone = phone;
     }
 
 
