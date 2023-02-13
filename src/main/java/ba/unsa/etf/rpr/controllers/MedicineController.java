@@ -57,7 +57,7 @@ public class MedicineController {
                 Stage stage = new Stage();
                 Parent root = null;
                 try {
-                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/aboutus.fxml")));
+                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/onlineorder.fxml")));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
