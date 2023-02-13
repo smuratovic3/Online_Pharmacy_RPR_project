@@ -20,33 +20,4 @@ public class AppFX extends Application {
         primaryStage.show();
 
     }
-
-    public static void main(String[] args) throws SQLException {
-       /*Connection connection = DriverManager.getConnection("jdbc:mysql://sql.freedb.tech:3306/freedb_RPR_baza",
-                "freedb_smuratovic3", "JSkRP5Z5XgZ7T*a");
-        System.out.println("Connected to the database");
-
-        String query = "SELECT * FROM User";
-        try {
-                Statement stmt = connection.createStatement();
-                ResultSet rs = stmt.executeQuery(query);
-                while(rs.next()){
-                    Integer id = rs.getInt(1);
-                    String name = rs.getString(2);
-                    System.out.println(id + " " + name);
-
-                }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-*/
-
-
-
-
-
-
-
-         launch(args);
-    }
 }
