@@ -54,7 +54,12 @@
             <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="95.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
@@ -62,48 +67,52 @@
             <RowConstraints maxHeight="158.0" minHeight="0.0" prefHeight="45.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="E-mail:" GridPane.rowIndex="5">
+            <Label text="E-mail:" GridPane.rowIndex="10">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding></Label>
-            <TextField fx:id="emailField" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label fx:id="messageLabel1" prefHeight="17.0" prefWidth="144.0" text="Please fill the empty field!" textFill="#2626c6" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+            <TextField fx:id="emailField" prefHeight="25.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label fx:id="messageLabel1" prefHeight="17.0" prefWidth="144.0" text="Please fill the empty field!" textFill="#2626c6" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="11" />
             <Label text="Name:" GridPane.rowIndex="1">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </Label>
-            <Label text="Surname:" GridPane.rowIndex="2">
+            <Label text="Surname:" GridPane.rowIndex="3">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </Label>
-            <Label text="Address:" GridPane.rowIndex="3">
+            <Label text="Address:" GridPane.rowIndex="5">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </Label>
-            <Label text="Phone number:" GridPane.rowIndex="4">
+            <Label text="Phone number:" GridPane.rowIndex="7">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </Label>
             <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="surnameField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label text="Password:" GridPane.rowIndex="7">
+            <TextField fx:id="surnameField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="Password:" GridPane.rowIndex="12">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </Label>
-            <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label fx:id="messageLabel2" text="Password can't be empty!" textFill="#eb4343" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <ImageView fitHeight="39.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+            <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Label fx:id="messageLabel2" text="Password can't be empty!" textFill="#eb4343" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <ImageView fitHeight="26.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/userLogo.png" />
                </image>
             </ImageView>
+            <Label fx:id="messageLabel3" text="Name can't be empty." textFill="#da3838" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="messageLabel4" text="Surname can't be empty." textFill="#eb4141" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="messageLabel5" text="Address can't be empty." textFill="#ee3434" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="messageLabel6" text="Phone number can't be empty." textFill="#e83a3a" GridPane.columnIndex="1" GridPane.rowIndex="8" />
          </children>
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

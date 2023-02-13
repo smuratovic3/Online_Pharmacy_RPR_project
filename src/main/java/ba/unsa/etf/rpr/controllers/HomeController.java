@@ -52,11 +52,4 @@ public class HomeController {
         stage.setResizable(false);
         stage.show();
     }
-
-
-
-
-
-
-
 }

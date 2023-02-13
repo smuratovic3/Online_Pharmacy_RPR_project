@@ -28,9 +28,6 @@ public class MedicineController {
     private final MedicineManager medicineManager = new MedicineManager();
     private final UserManager  userManager = new UserManager();
 
-
-
-
     @FXML
      public TableColumn<Medicine, String> nameColumn  = new TableColumn<>();
     @FXML
@@ -56,7 +53,7 @@ public class MedicineController {
         public OrderCell() {
             btn.setOnAction(event -> {
                 Medicine medicine = getTableView().getItems().get(getIndex());
-                // Add your logic here to handle the button click event
+                // Add  logic here to handle the button click event
                 Stage stage = new Stage();
                 Parent root = null;
                 try {
