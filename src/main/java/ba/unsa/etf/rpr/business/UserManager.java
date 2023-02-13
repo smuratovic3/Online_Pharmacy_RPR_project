@@ -37,24 +37,6 @@ public class UserManager {
         return DaoFactory.userDao().getAll();
     }
 
-    public User findEmail(String emailField) throws MedicineException{
-        return DaoFactory.userDao().findEmail(emailField);
-    }
-
-    private static final String HASHING_ALGORITHM = "SHA-256";
-
-    public static String hashPassword(String password) throws NoSuchAlgorithmException {
-        MessageDigest messageDigest = MessageDigest.getInstance(HASHING_ALGORITHM);
-        messageDigest.update(password.getBytes());
-
-        byte[] hashedPassword = messageDigest.digest();
-
-        StringBuilder stringBuilder = new StringBuilder();
-        for (byte b : hashedPassword) {
-            stringBuilder.append(String.format("%02x", b));
-        }
-        return stringBuilder.toString();
-    }
 
 
 }
