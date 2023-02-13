@@ -1,5 +1,5 @@
 package ba.unsa.etf.rpr.domain;
-import java.util.List;
+
 import java.util.Objects;
 
 /**
@@ -30,9 +30,7 @@ public class Medicine implements Idable {
         this.name = name;
     }
 
-    public int getPrice() {
-        return price;
-    }
+    public int getPrice() {return price;}
 
     public void setPrice(int price) {
         this.price = price;

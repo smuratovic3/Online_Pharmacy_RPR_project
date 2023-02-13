@@ -50,7 +50,7 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
             q.setPrice(rs.getInt("price"));
             q.setQuantity(rs.getInt("quantity"));
             q.setDescription(rs.getString("description"));
-
+            q.setCategory(DaoFactory.categoryDao().getById(rs.getInt("categories_Id")));
             return q;
         } catch (Exception e) {
             throw new MedicineException(e.getMessage(), e);
@@ -67,9 +67,10 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
         Map<String, Object> item = new TreeMap<>();
         item.put("id", object.getId());
         item.put("name", object.getName());
+        item.put("price", object.getPrice());
         item.put("quantity", object.getQuantity());
         item.put("description", object.getDescription());
-        item.put("id", object.getCategory().getId());
+        item.put("categories_Id", object.getCategory().getId());
         return item;
     }
 
