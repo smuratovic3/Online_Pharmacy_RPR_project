@@ -105,7 +105,7 @@
             </Label>
             <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="12" />
             <Label fx:id="messageLabel2" text="Password can't be empty!" textFill="#eb4343" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-            <ImageView fitHeight="26.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="26.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/userLogo.png" />
                </image>

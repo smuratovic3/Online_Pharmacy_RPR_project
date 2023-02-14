@@ -42,6 +42,9 @@
                   <ColumnConstraints />
                   <ColumnConstraints />
                   <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints />
@@ -111,7 +114,7 @@
                </children>
             </VBox>
             <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="searchText" prefHeight="27.0" prefWidth="81.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="searchText" prefHeight="40.0" prefWidth="139.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -152,7 +155,7 @@
    <bottom>
       <HBox prefHeight="36.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="17.0" prefWidth="608.0" text="For information on precautions, risks and side effects, consult your doctor or pharmacist. Thank you!">
+            <Label prefHeight="17.0" prefWidth="608.0" text="For information on precautions, risks and side effects, consult your doctor or pharmacist. Thank you!" textFill="#4b50dd">
                <HBox.margin>
                   <Insets />
                </HBox.margin>

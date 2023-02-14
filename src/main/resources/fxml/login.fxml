@@ -23,8 +23,8 @@
    <center>
       <GridPane prefHeight="400.0" prefWidth="600.0" styleClass="loginPozadina">
           <columnConstraints>
-              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="160.0" />
+              <ColumnConstraints hgrow="SOMETIMES" maxWidth="422.0" minWidth="10.0" prefWidth="403.0" />
               <ColumnConstraints />
           </columnConstraints>
           <rowConstraints>
@@ -39,10 +39,10 @@
               <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
           </padding>
           <children>
-              <Label text="E-mail:" GridPane.rowIndex="1" />
-              <Label text="Password:" GridPane.rowIndex="3" />
-              <TextField fx:id="emailField" layoutX="100.0" layoutY="20.0" styleClass="formControl" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-              <PasswordField fx:id="passwordField" styleClass="formControl" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+              <Label text="E-mail:" GridPane.rowIndex="3" />
+              <Label text="Password:" GridPane.rowIndex="4" />
+              <TextField fx:id="emailField" layoutX="100.0" layoutY="20.0" prefHeight="25.0" prefWidth="407.0" styleClass="formControl" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+              <PasswordField fx:id="passwordField" styleClass="formControl" GridPane.columnIndex="1" GridPane.rowIndex="4" />
               <Label maxHeight="40.0" maxWidth="443.0" minHeight="30.0" minWidth="200.0" prefHeight="40.0" prefWidth="358.0" styleClass="loginWelcome" text="Welcome to Online Pharmacy!" GridPane.columnIndex="1" GridPane.columnSpan="2">
                <padding>
                   <Insets bottom="10.0" left="25.0" right="10.0" top="10.0" />
@@ -53,6 +53,11 @@
             <ImageView fitHeight="49.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/userLogo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="101.0" fitWidth="324.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@../images/image2.png" />
                </image>
             </ImageView>
           </children>
