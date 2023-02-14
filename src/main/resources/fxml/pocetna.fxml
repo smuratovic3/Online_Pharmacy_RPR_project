@@ -44,7 +44,7 @@
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="37.0" prefWidth="581.0" text="For information on precautions, risks and side effects, consult your doctor or pharmacist. Thank you!">
+            <Label prefHeight="37.0" prefWidth="581.0" text="For information on precautions, risks and side effects, consult your doctor or pharmacist. Thank you!" textFill="#3446eb">
                <padding>
                   <Insets bottom="10.0" left="35.0" right="10.0" top="10.0" />
                </padding>

@@ -32,7 +32,9 @@
               <RowConstraints maxHeight="174.8" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
               <RowConstraints maxHeight="174.8" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
               <RowConstraints maxHeight="141.2000030517578" minHeight="9.0" prefHeight="46.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="141.2000030517578" minHeight="9.0" prefHeight="46.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="141.2000030517578" minHeight="9.0" prefHeight="67.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="114.5999816894531" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="114.5999816894531" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
           </rowConstraints>
           <padding>
@@ -40,24 +42,19 @@
           </padding>
           <children>
               <Label text="E-mail:" GridPane.rowIndex="3" />
-              <Label text="Password:" GridPane.rowIndex="4" />
+              <Label text="Password:" GridPane.rowIndex="5" />
               <TextField fx:id="emailField" layoutX="100.0" layoutY="20.0" prefHeight="25.0" prefWidth="407.0" styleClass="formControl" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-              <PasswordField fx:id="passwordField" styleClass="formControl" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+              <PasswordField fx:id="passwordField" styleClass="formControl" GridPane.columnIndex="1" GridPane.rowIndex="5" />
               <Label maxHeight="40.0" maxWidth="443.0" minHeight="30.0" minWidth="200.0" prefHeight="40.0" prefWidth="358.0" styleClass="loginWelcome" text="Welcome to Online Pharmacy!" GridPane.columnIndex="1" GridPane.columnSpan="2">
                <padding>
                   <Insets bottom="10.0" left="25.0" right="10.0" top="10.0" />
                </padding></Label>
-            <Label fx:id="badEmailIN" prefHeight="17.0" prefWidth="354.0" textFill="#d00c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="badPasswordIN" prefHeight="17.0" prefWidth="389.0" textFill="#c30f0f" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="255.0" textFill="#b0c320" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="badEmailIN" prefHeight="17.0" prefWidth="354.0" textFill="#d00c0c" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="badPasswordIN" prefHeight="17.0" prefWidth="389.0" textFill="#c30f0f" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="255.0" textFill="#b0c320" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <ImageView fitHeight="49.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/userLogo.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="101.0" fitWidth="324.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <image>
-                  <Image url="@../images/image2.png" />
                </image>
             </ImageView>
           </children>
