@@ -79,7 +79,7 @@
                   <Insets bottom="10.0" left="45.0" right="10.0" top="10.0" />
                </padding>
             </Label>
-            <Button mnemonicParsing="false" text="Yes">
+            <Button defaultButton="true" mnemonicParsing="false" text="Yes">
                <VBox.margin>
                   <Insets bottom="5.0" left="170.0" right="5.0" top="5.0" />
                </VBox.margin>
@@ -88,7 +88,7 @@
       </VBox>
    </center>
    <bottom>
-      <Button mnemonicParsing="false" text="Cancel" BorderPane.alignment="CENTER">
+      <Button cancelButton="true" mnemonicParsing="false" text="Cancel" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </BorderPane.margin>
