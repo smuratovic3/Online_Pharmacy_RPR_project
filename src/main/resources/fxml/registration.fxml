@@ -39,7 +39,7 @@
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
-            <Label styleClass="registracija" text="You only need to enter your email for registration!" />
+            <Label styleClass="registracija" text="You  need to enter your personal information for registration!" />
          </items>
       </ToolBar>
    </top>
@@ -48,6 +48,7 @@
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="308.0" minWidth="10.0" prefWidth="295.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="308.0" minWidth="10.0" prefWidth="295.0" />
+            <ColumnConstraints />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
