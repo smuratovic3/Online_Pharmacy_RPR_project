@@ -7,7 +7,7 @@ import java.util.Objects;
  **/
 public class OnlineOrder implements Idable {
     private int id;
-    private int payment;
+
     private int bill;
     private User user;
 
@@ -20,13 +20,7 @@ public class OnlineOrder implements Idable {
         this.id = id;
     }
 
-    public int getPayment() {
-        return payment;
-    }
 
-    public void setPayment(int payment) {
-        this.payment = payment;
-    }
 
     public int getBill() {
         return bill;
@@ -48,7 +42,7 @@ public class OnlineOrder implements Idable {
     public String toString() {
         return "Order: " +
                 "id=" + id +
-                ", payment='" + payment + '\'' +
+
                 ", bill=" + bill +
                 ", user=" + user +
                 '.';
@@ -64,6 +58,6 @@ public class OnlineOrder implements Idable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, payment,bill,user);
+        return Objects.hash(id, bill,user);
     }
 }
