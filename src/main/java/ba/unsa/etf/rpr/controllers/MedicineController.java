@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.MedicineManager;
 import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.collections.FXCollections;
@@ -21,12 +22,14 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 
 public class MedicineController {
+
     @FXML
     public TableView<Medicine> medicineTable;
     public ObservableList<Medicine> lista = FXCollections.observableArrayList();
     public TextField searchText;
     private final MedicineManager medicineManager = new MedicineManager();
     private final UserManager  userManager = new UserManager();
+    public static Medicine medicine = new Medicine();
 
     @FXML
      public TableColumn<Medicine, String> nameColumn  = new TableColumn<>();
@@ -41,6 +44,7 @@ public class MedicineController {
 
 
 
+
     @FXML
     public void initialize()
 {
@@ -50,9 +54,11 @@ public class MedicineController {
          descriptionColumn.setCellValueFactory(new PropertyValueFactory<Medicine, String>("description"));
         class OrderCell extends TableCell<Medicine, Integer> {
         private Button btn = new Button("Order");
+
         public OrderCell() {
             btn.setOnAction(event -> {
-                Medicine medicine = getTableView().getItems().get(getIndex());
+                medicine = getTableView().getItems().get(getIndex());
+                System.out.println(medicine.getName());
                 // Add  logic here to handle the button click event
                 Stage stage = new Stage();
                 Parent root = null;

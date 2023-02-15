@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
@@ -38,6 +39,7 @@ public class LoginController {
     @FXML
     public void initialize()
     {
+
         emailField.getStyleClass().add("poljeNijeIspravno");
         emailField.textProperty().addListener(new ChangeListener<String>() {
             @Override

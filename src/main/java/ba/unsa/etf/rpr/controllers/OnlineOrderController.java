@@ -1,10 +1,15 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.domain.Medicine;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,7 +19,15 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class OnlineOrderController {
     public Button btnCancel;
+    public Label medicineName;
 
+
+
+    @FXML
+    public void initialize()
+    {
+        medicineName.setText(MedicineController.medicine.getName());
+    }
     public void confirm(ActionEvent actionEvent) {
         try {
             Stage stage = new Stage();
