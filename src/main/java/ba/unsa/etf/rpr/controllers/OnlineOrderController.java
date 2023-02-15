@@ -20,13 +20,18 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 public class OnlineOrderController {
     public Button btnCancel;
     public Label medicineName;
-
+    public Label medicinePrice;
+    public Label medicineQuantity;
+    public Label medicineDescription;
 
 
     @FXML
     public void initialize()
     {
         medicineName.setText(MedicineController.medicine.getName());
+        medicinePrice.setText(String.valueOf(MedicineController.medicine.getPrice()) + "$");
+        //medicineQuantity.setText(String.valueOf(MedicineController.medicine.getQuantity()));
+        //medicineDescription.setText(MedicineController.medicine.getDescription());
     }
     public void confirm(ActionEvent actionEvent) {
         try {
