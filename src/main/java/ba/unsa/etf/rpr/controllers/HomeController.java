@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 
 
+import ba.unsa.etf.rpr.domain.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,7 @@ import java.util.Objects;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class HomeController {
+
 
     public void actionLoginWindow(ActionEvent actionEvent) throws IOException
     {

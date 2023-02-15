@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 <BorderPane prefHeight="448.0" prefWidth="613.0" styleClass="LoginPozadina" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.LoginController">
+
     <stylesheets>
         <URL value="@/css/login.css" />
 
@@ -83,3 +84,4 @@
       </ToolBar>
    </top>
 </BorderPane>
+

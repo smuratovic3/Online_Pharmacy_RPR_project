@@ -109,4 +109,17 @@ public class MedicineController {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
         }
     }
+
+    public void windowMyList(ActionEvent actionEvent) {
+        try {
+            Stage stage = new Stage();
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/mylist.fxml")));
+            stage.setTitle("My List");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

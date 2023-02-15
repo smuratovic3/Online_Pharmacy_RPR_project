@@ -149,6 +149,8 @@
             <Button mnemonicParsing="false" styleClass="tbButton" text="Help" />
             <Separator orientation="VERTICAL" />
           <Button mnemonicParsing="false" styleClass="tbButton" text="About us" />
+            <Separator orientation="VERTICAL" />
+            <Button mnemonicParsing="false" onAction="#windowMyList" styleClass="tbButton" text="MyList" />
         </items>
       </ToolBar>
    </top>

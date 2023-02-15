@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.controllers;
 
-import ba.unsa.etf.rpr.domain.Medicine;
+import ba.unsa.etf.rpr.business.UserManager;
+
+import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +10,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -28,6 +30,9 @@ public class OnlineOrderController {
     public Label medicineQuantity;
     public Label medicineDescription;
 
+    private String email;
+   // private  LoginController loginController= new LoginController();
+
 
     @FXML
     public void initialize()
@@ -36,26 +41,31 @@ public class OnlineOrderController {
         medicinePrice.setText(String.valueOf(MedicineController.medicine.getPrice()) + "$");
         medicineQuantity.setText(String.valueOf(MedicineController.medicine.getQuantity()));
         medicineDescription.setText(MedicineController.medicine.getDescription());
+
     }
 
-    public void insertData(){
+    /*public void insertData(){
         String query2 = "INSERT INTO OnlineOrder  VALUES (?,?,?)";
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://sql.freedb.tech:3306/freedb_RPR_baza",
                     "freedb_smuratovic3", "JSkRP5Z5XgZ7T*a");
             PreparedStatement preparedStmt = connection.prepareStatement(query2);
-            preparedStmt.setInt(1, 1);
+            preparedStmt.setInt(1, 3);
             preparedStmt.setInt(2, MedicineController.medicine.getPrice());
-            preparedStmt.setInt(3, 1);
+            preparedStmt.setInt(3, UserManager.findEmail(loginController.getEmail()).getId());
 
             preparedStmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (MedicineException e) {
+            throw new RuntimeException(e);
         }
     }
+
+     */
     public void confirm(ActionEvent actionEvent) {
         try {
-            insertData();
+          //  insertData();
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/confirmorder.fxml")));
             stage.setTitle("Confirm");
