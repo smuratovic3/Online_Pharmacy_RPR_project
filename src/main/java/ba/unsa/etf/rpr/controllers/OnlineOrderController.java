@@ -31,8 +31,7 @@ public class OnlineOrderController {
         medicineName.setText(MedicineController.medicine.getName());
         medicinePrice.setText(String.valueOf(MedicineController.medicine.getPrice()) + "$");
         medicineQuantity.setText(String.valueOf(MedicineController.medicine.getQuantity()));
-        //
-        // medicineDescription.setText(MedicineController.medicine.getDescription());
+        medicineDescription.setText(MedicineController.medicine.getDescription());
     }
     public void confirm(ActionEvent actionEvent) {
         try {
