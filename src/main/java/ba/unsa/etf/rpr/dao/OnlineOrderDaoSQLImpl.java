@@ -37,9 +37,8 @@ public class OnlineOrderDaoSQLImpl extends AbstractDao<OnlineOrder> implements O
         try {
             OnlineOrder q = new OnlineOrder();
             q.setId(rs.getInt("id"));
-
             q.setBill(rs.getInt("bill"));
-            q.setUser(DaoFactory.onlineOrderDao().getById(rs.getInt("id")).getUser());
+            q.setUser(DaoFactory.onlineOrderDao().getById(rs.getInt("user_Id")).getUser());
             return q;
         } catch (Exception e) {
             throw new MedicineException(e.getMessage(), e);
@@ -55,9 +54,8 @@ public class OnlineOrderDaoSQLImpl extends AbstractDao<OnlineOrder> implements O
     {
         Map<String, Object> item = new TreeMap<>();
         item.put("id", object.getId());
-      
         item.put("bill", object.getBill());
-        item.put("id", object.getUser().getId());
+        item.put("user_Id", object.getUser().getId());
         return item;
     }
 

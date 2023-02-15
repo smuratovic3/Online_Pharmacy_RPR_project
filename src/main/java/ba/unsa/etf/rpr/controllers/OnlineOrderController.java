@@ -13,6 +13,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Objects;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -33,8 +37,25 @@ public class OnlineOrderController {
         medicineQuantity.setText(String.valueOf(MedicineController.medicine.getQuantity()));
         medicineDescription.setText(MedicineController.medicine.getDescription());
     }
+
+    public void insertData(){
+        String query2 = "INSERT INTO OnlineOrder  VALUES (?,?,?)";
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://sql.freedb.tech:3306/freedb_RPR_baza",
+                    "freedb_smuratovic3", "JSkRP5Z5XgZ7T*a");
+            PreparedStatement preparedStmt = connection.prepareStatement(query2);
+            preparedStmt.setInt(1, 1);
+            preparedStmt.setInt(2, MedicineController.medicine.getPrice());
+            preparedStmt.setInt(3, 1);
+
+            preparedStmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public void confirm(ActionEvent actionEvent) {
         try {
+            insertData();
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/confirmorder.fxml")));
             stage.setTitle("Confirm");

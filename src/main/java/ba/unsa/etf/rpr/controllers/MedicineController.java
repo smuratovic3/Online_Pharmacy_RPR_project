@@ -59,6 +59,7 @@ public class MedicineController {
             btn.setOnAction(event -> {
                 medicine = getTableView().getItems().get(getIndex());
                 System.out.println(medicine.getName());
+
                 // Add  logic here to handle the button click event
                 Stage stage = new Stage();
                 Parent root = null;
