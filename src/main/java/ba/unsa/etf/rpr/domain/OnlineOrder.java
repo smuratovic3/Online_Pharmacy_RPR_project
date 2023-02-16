@@ -29,11 +29,18 @@ public class OnlineOrder implements Idable {
     }
 
 
-
+    /**
+     * Getter for Bill
+     * @return bill
+     */
     public int getBill() {
         return bill;
     }
 
+    /**
+     * Setter for Id
+     * @param bill int
+     */
     public void setBill(int bill) {
         this.bill = bill;
     }
