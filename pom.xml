@@ -30,10 +30,18 @@
     </dependency>
 
 
+
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
       <version>19-ea+7</version>
+    </dependency>
+    <!--Mockito version must be higher than 3.5, otherwise we wouldn't be able to use MockedStatic in CategoryManager, because
+           older versions of mockito don't provide it-->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>4.11.0</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -77,6 +85,12 @@
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
       <version>19-ea+7</version>
+    </dependency>
+    <!-- we need this dependency for mocking static methods-->
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-inline</artifactId>
+      <version>4.11.0</version>
     </dependency>
   </dependencies>
 

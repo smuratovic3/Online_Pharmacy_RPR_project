@@ -1,13 +1,25 @@
 package ba.unsa.etf.rpr;
 
 import ba.unsa.etf.rpr.business.CategoryManager;
+import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.dao.UserDao;
+import ba.unsa.etf.rpr.dao.UserDaoSQLImpl;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.verify;
 
 import static ba.unsa.etf.rpr.controllers.MedicineController.medicine;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 /**
  * *Tests for my App
@@ -83,8 +95,6 @@ public class AppTest {
             assertEquals("Medicine name must be between 3 and 45 chars", e.getMessage());
         }
     }
-
-
     @Test
     public void validateCategoryName2() throws MedicineException {
         // Test for a valid category name
@@ -98,7 +108,6 @@ public class AppTest {
             assertEquals("Medicine name must be between 3 and 45 chars", e.getMessage());
         }
     }
-
     @Test
     public void validateCategoryName3() throws MedicineException {
         // Test for a valid category name
@@ -114,13 +123,51 @@ public class AppTest {
     }
 
 
+    @Mock
+    private UserDao userDao;
+    public User user = new User();
+    private UserDaoSQLImpl usersDaoSQLMock = Mockito.mock(UserDaoSQLImpl.class);
+    private UserManager userManager = new UserManager();
+
+    @BeforeEach
+    public void setUp() {
+        user.setId(1);
+        user.setName("Azra");
+        user.setSurname("Muratovic");
+        user.setAddress("Podigmanska 4");
+        user.setPhone(Integer.parseInt("061923508"));
+        user.setEmail("azra1@gmail.com");
+        user.setPassword("azra123");
+        MockitoAnnotations.openMocks(this);
+        userManager = new UserManager();
+    }
 
 
-
-
-
-
-
+    /**
+     * This method is testing registration
+     * @throws MedicineException
+     */
+        @Test
+         void register() throws MedicineException {
+        User user = new User(1, "Azra", "Muratovic", "Podigmanska 4", "061923508", "azra1@gmail.com", "azra123");
+        MockedStatic<DaoFactory> mockedFactory = Mockito.mockStatic(DaoFactory.class);
+        mockedFactory.when(DaoFactory::userDao).thenReturn(usersDaoSQLMock);
+        User expected = new User();
+        when(usersDaoSQLMock.add(Mockito.any(User.class))).thenReturn(expected);
+        User actual = usersDaoSQLMock.add(new User());
+        assertEquals(expected, actual);
+        mockedFactory.close();
+    }
+        @Test
+        public void addTest() throws MedicineException {
+        userDao.add(user);
+        verify(userDao).add(user);
+    }
+        @Test
+        void deleteTest() throws Exception {
+        userDao.delete(1);
+        verify(userDao).delete(1);
+    }
 }
 
 

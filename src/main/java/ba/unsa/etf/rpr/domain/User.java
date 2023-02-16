@@ -28,6 +28,8 @@ public class User implements Idable {
     public User() {
     }
 
+    public User(int id, String azra, String muratovic, String address, String s, String email, String azra123) {
+    }
 
 
     @Override
