@@ -2,9 +2,9 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Objects;
 
 /**
- * Information about users
- * @author Semina Muratović
- **/
+ * Class that contains information about users.
+ * @author Semina Muratovic
+ */
 public class User implements Idable {
     private int id;
     private String name;
@@ -14,7 +14,16 @@ public class User implements Idable {
     private String email;
     private String password;
 
-
+    /**
+     * Construtor with parametres
+     * @param id
+     * @param name
+     * @param surname
+     * @param address
+     * @param phone
+     * @param email
+     * @param password
+     */
     public User(int id,String name, String surname, String address, int phone, String email, String password) {
         this.id = id;
         this.name = name;
@@ -24,7 +33,10 @@ public class User implements Idable {
         this.email = email;
         this.password = password;
     }
-
+    
+    /**
+     * Default constructor
+     */
     public User() {
     }
 
