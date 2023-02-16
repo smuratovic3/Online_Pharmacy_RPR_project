@@ -2,9 +2,9 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Objects;
 
 /**
- * Information about ordering online
- * @author Semina Muratović
- **/
+ * Class that contains information about reservations made for medicines.
+ * @author Seminaa Muratovic
+ */
 public class OnlineOrder implements Idable {
     private int id;
 
@@ -12,6 +12,10 @@ public class OnlineOrder implements Idable {
     private User user;
 
 
+    /**
+     * Getter for Id
+     * @return int
+     */
     public int getId() {
         return id;
     }
