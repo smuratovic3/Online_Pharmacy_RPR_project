@@ -38,10 +38,18 @@ public class OnlineOrder implements Idable {
         this.bill = bill;
     }
 
+    /**
+     * Getter for user
+     * @return User
+     */
     public User getUser() {
         return user;
     }
 
+    /**
+     * Setter for User
+     * @param user User
+     */
     public void setUser(User user) {
         this.user = user;
     }
