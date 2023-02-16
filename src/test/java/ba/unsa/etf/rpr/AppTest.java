@@ -57,6 +57,19 @@ public class AppTest {
         }
     }
 
+    /**
+     * Tests if setters and getters in 'Medicine' are valid
+     */
+    @Test
+    public void getName() {
+        medicine.setName("Medicine A");
+        assertEquals("Medicine A", medicine.getName());
+    }
+    @Test
+    public void getPrice() {
+        medicine.setPrice(10);
+        assertEquals(10, medicine.getPrice());
+    }
 
 
 
