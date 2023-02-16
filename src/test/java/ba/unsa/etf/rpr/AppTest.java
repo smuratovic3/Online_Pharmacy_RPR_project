@@ -27,7 +27,25 @@ public class AppTest {
             assertEquals("Medicine name must be between 3 and 45 chars", e.getMessage());
         }
     }
-    
+
+
+    @Test
+    public void validateCategoryName2() throws MedicineException {
+        // Test for a valid category name
+        CategoryManager categoryManager = new CategoryManager();
+        categoryManager.validateCategoryName("Headache");
+        // Test for a name that is too long
+        try {
+            categoryManager.validateCategoryName("This category name is too long and should not be allowed");
+            fail("Expected MedicineException was not thrown");
+        } catch (MedicineException e) {
+            assertEquals("Medicine name must be between 3 and 45 chars", e.getMessage());
+        }
+    }
+
+   
+
+
 
 
 
