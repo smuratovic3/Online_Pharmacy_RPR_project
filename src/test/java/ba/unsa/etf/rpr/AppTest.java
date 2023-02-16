@@ -43,7 +43,21 @@ public class AppTest {
         }
     }
 
-   
+    @Test
+    public void validateCategoryName3() throws MedicineException {
+        // Test for a valid category name
+        CategoryManager categoryManager = new CategoryManager();
+        categoryManager.validateCategoryName("Headache");
+        // Test for a null name
+        try {
+            categoryManager.validateCategoryName(null);
+            fail("Expected MedicineException was not thrown");
+        } catch (MedicineException e) {
+            assertEquals("Medicine name must be between 3 and 45 chars", e.getMessage());
+        }
+    }
+
+
 
 
 
