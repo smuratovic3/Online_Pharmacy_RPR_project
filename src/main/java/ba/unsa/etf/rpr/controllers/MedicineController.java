@@ -1,8 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.MedicineManager;
-import ba.unsa.etf.rpr.business.UserManager;
-import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.collections.FXCollections;
@@ -28,7 +26,7 @@ public class MedicineController {
     public ObservableList<Medicine> lista = FXCollections.observableArrayList();
     public TextField searchText;
     private final MedicineManager medicineManager = new MedicineManager();
-    private final UserManager  userManager = new UserManager();
+
     public static Medicine medicine = new Medicine();
 
     @FXML
@@ -41,8 +39,14 @@ public class MedicineController {
      public TableColumn<Medicine, String>  descriptionColumn  = new TableColumn<>();
     @FXML
     public TableColumn<Medicine, Integer> orderColumn;
-
-
+    public CheckBox checkBox1;
+    public CheckBox checkbox2;
+    public CheckBox checkBox3;
+    public CheckBox checkBox4;
+    public CheckBox checkBox5;
+    public CheckBox checkBox6;
+    public CheckBox checkBox7;
+    public CheckBox checkBox8;
 
 
     @FXML
@@ -122,4 +126,14 @@ public class MedicineController {
             System.out.println(e.getMessage());
         }
     }
+
+
+    public void handleCheckboxClick(ActionEvent actionEvent) {
+        CheckBox checkBox = (CheckBox) actionEvent.getSource();
+        checkBox.setSelected(!checkBox.isSelected());
+        System.out.println("pritisnuto" + checkBox);
+
+
+    }
+
 }

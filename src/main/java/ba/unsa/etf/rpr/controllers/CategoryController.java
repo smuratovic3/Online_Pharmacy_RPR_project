@@ -2,14 +2,16 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.CategoryManager;
 import ba.unsa.etf.rpr.domain.Category;
+import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * JavaFX controller for category management
@@ -23,6 +25,7 @@ public class CategoryController {
     // components
     public ListView<Category> categoriesList;
     public TextField categoryName;
+    public TableView<Medicine> medicinesTable;
 
     @FXML
     public void initialize()
@@ -86,4 +89,6 @@ public class CategoryController {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
         }
     }
+
+
 }
