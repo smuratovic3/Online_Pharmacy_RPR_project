@@ -8,7 +8,7 @@ import java.util.Objects;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
-/**
+        /**
         * AppFX class is responsible for loading and displaying the JavaFX UI using FXML.
         * @author Semina Muratovic
         * @version 1.0
