@@ -59,10 +59,19 @@ public class User implements Idable {
     public int getId() {
         return id;
     }
+
+    /**
+     * Getter for name
+     * @return String
+     */
     public String getName() {
         return name;
     }
-
+    
+    /**
+     * Setter for name
+     * @param name String
+     */
     public void setName(String name) {
         this.name = name;
     }
