@@ -33,7 +33,7 @@ public class User implements Idable {
         this.email = email;
         this.password = password;
     }
-    
+
     /**
      * Default constructor
      */
@@ -43,11 +43,19 @@ public class User implements Idable {
     public User(int id, String azra, String muratovic, String address, String s, String email, String azra123) {
     }
 
-
+    /**
+     * Setter for id
+     * @param id int
+     */
     @Override
     public void setId(int id) {
         this.id = id;
     }
+
+    /**
+     * Getter for id
+     * @return int
+     */
     public int getId() {
         return id;
     }
