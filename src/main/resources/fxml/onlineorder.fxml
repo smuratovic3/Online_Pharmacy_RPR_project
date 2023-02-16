@@ -9,7 +9,12 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import java.net.URL?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.OnlineOrderController">
+   <stylesheets>
+      <URL value="@/css/onlineorder.css" />
+
+   </stylesheets>
    <top>
       <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <items>
@@ -103,7 +108,7 @@
                   <Insets bottom="10.0" left="45.0" right="10.0" top="10.0" />
                </padding>
             </Label>
-            <Button defaultButton="true" mnemonicParsing="false" onAction="#confirm" text="Yes">
+            <Button fx:id="btnYes" defaultButton="true" mnemonicParsing="false" onAction="#confirm" styleClass="buttonss" text="Yes">
                <VBox.margin>
                   <Insets bottom="5.0" left="170.0" right="5.0" top="5.0" />
                </VBox.margin>
@@ -112,7 +117,7 @@
       </VBox>
    </center>
    <bottom>
-      <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#cancelAction" text="Cancel" BorderPane.alignment="CENTER">
+      <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#cancelAction" styleClass="buttonss" text="Cancel" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </BorderPane.margin>

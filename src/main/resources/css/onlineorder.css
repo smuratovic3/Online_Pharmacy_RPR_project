@@ -1,0 +1,7 @@
+.buttonss {
+  -fx-background-radius: 4;
+  -fx-background-color: #3498db;
+  -fx-text-fill: white;
+  -fx-font-size: 10px;
+  -fx-padding: 10px 20px;
+}
