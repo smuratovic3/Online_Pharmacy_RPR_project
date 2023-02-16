@@ -20,6 +20,10 @@ public class OnlineOrder implements Idable {
         return id;
     }
 
+    /**
+     * Setter for Id
+     * @param id int
+     */
     public void setId(int id) {
         this.id = id;
     }
