@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.AboutUsController">
     <stylesheets>
@@ -33,9 +34,8 @@
    <center>
       <GridPane prefHeight="237.0" prefWidth="476.0" styleClass="pozadina" BorderPane.alignment="CENTER">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="218.0" minWidth="10.0" prefWidth="212.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="76.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="2.0" prefWidth="20.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="218.0" minWidth="10.0" prefWidth="193.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="103.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="237.0" minWidth="10.0" prefWidth="196.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -52,20 +52,29 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Label>
             <Label styleClass="labele" text="Phone:" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Label>
             <Label styleClass="labele" text="Address:" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Label>
-            <Label styleClass="labele" text="Online Pharmacy Sem" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label styleClass="labele" text="+387 62 365 168" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Label styleClass="labele" text="Malta bb" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label styleClass="labele" text="Online Pharmacy Sem" textFill="#1600a4" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label styleClass="labele" text="+387 62 365 168" textFill="#1600a4" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label styleClass="labele" text="Malta bb" textFill="#1600a4" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <ImageView fitHeight="86.0" fitWidth="217.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                <image>
                   <Image url="@../images/image2.png" />
