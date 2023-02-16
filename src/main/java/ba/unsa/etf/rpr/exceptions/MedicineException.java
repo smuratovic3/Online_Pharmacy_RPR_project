@@ -12,6 +12,10 @@ public class MedicineException extends Exception{
         super(msg, reason);
     }
 
+    /**
+     * Constructs a new MedicineWxception with the specified detail message.
+     * @param msg the detail message.
+     */
     public MedicineException(String msg){
         super(msg);
     }
