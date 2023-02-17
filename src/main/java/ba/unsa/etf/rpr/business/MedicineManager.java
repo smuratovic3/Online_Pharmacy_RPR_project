@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.business;
 
 import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.scene.control.CheckBox;
@@ -43,6 +44,10 @@ public class MedicineManager {
     public Medicine add(Medicine q) throws MedicineException
     {
         return DaoFactory.medicineDao().add(q);
+    }
+
+    public List<Medicine> searchByCategory(Category category) throws MedicineException{
+        return DaoFactory.medicineDao().searchByCategory(category);
     }
 
 

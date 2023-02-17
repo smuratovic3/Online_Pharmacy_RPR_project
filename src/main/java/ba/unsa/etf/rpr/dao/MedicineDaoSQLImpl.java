@@ -94,8 +94,10 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
     @Override
     public List<Medicine> searchByCategory(Category category) throws MedicineException
     {
-        return executeQuery("SELECT * FROM Medicine WHERE id = ?", new Object[]{category.getId()});
+        return executeQuery("SELECT * FROM Medicine WHERE categories_Id = ?", new Object[]{category.getId()});
     }
+
+
 
 
 

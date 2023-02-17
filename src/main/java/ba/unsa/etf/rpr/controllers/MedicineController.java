@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.business.CategoryManager;
 import ba.unsa.etf.rpr.business.MedicineManager;
+import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.collections.FXCollections;
@@ -15,6 +17,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -26,6 +29,7 @@ public class MedicineController {
     public ObservableList<Medicine> lista = FXCollections.observableArrayList();
     public TextField searchText;
     private final MedicineManager medicineManager = new MedicineManager();
+    private final CategoryManager categoryManager = new CategoryManager();
 
     public static Medicine medicine = new Medicine();
 
@@ -39,15 +43,14 @@ public class MedicineController {
      public TableColumn<Medicine, String>  descriptionColumn  = new TableColumn<>();
     @FXML
     public TableColumn<Medicine, Integer> orderColumn;
-    public CheckBox checkBox1;
-    public CheckBox checkbox2;
-    public CheckBox checkBox3;
-    public CheckBox checkBox4;
-    public CheckBox checkBox5;
-    public CheckBox checkBox6;
-    public CheckBox checkBox7;
-    public CheckBox checkBox8;
+    private int loggedUserId;
 
+    public MedicineController() {
+    }
+
+    public MedicineController(int loggedUserId) {
+        this.loggedUserId = loggedUserId;
+    }
 
     @FXML
     public void initialize()
@@ -75,6 +78,7 @@ public class MedicineController {
                 stage.setTitle("Online order");
                 stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
                 stage.setResizable(false);
+                //stage.setOnHiding();
                 stage.show();
             });
         }
@@ -128,10 +132,24 @@ public class MedicineController {
     }
 
 
-    public void handleCheckboxClick(ActionEvent actionEvent) {
-        CheckBox checkBox = (CheckBox) actionEvent.getSource();
-        checkBox.setSelected(!checkBox.isSelected());
-        System.out.println("pritisnuto" + checkBox);
+
+
+    public void handleRadioButtonClick(ActionEvent actionEvent) {
+
+        RadioButton radioButton = (RadioButton) actionEvent.getSource();
+
+        if(radioButton.getText().equals("All")){
+            refreshMedicine();
+        }else{
+        try {
+            List<Category> listaKategorija =  categoryManager.searchCategoryId(radioButton.getText());
+            medicineTable.setItems(FXCollections.observableList( medicineManager.searchByCategory(listaKategorija.get(0))));
+            medicineTable.refresh();
+        } catch (MedicineException e) {
+            e.printStackTrace();
+        }
+        }
+
 
 
     }

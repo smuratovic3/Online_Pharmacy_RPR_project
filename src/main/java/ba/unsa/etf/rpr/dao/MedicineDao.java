@@ -36,4 +36,6 @@ public interface MedicineDao extends Dao<Medicine>{
      * @throws MedicineException
      */
 
+
+
 }

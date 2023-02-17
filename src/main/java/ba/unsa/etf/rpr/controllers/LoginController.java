@@ -35,6 +35,7 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
     UserManager userManager = new UserManager();
+    private int id;
 
    // public String email;
 
@@ -97,6 +98,7 @@ public class LoginController {
             for (User u : listaUsera) {
                 if (u.getEmail().equals(emailField.getText()) && u.getPassword().equals(passwordField.getText())) {
                     loginSuccessful = true;
+                    id = u.getId();
                 }
             }
         }
@@ -105,10 +107,14 @@ public class LoginController {
 
             try {
                 Stage stage = new Stage();
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/medicine.fxml")));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/medicine.fxml"));
+                MedicineController medicineController = new MedicineController(id);
+                loader.setController(medicineController);
+                Parent root = loader.load();
                 stage.setTitle("Medicine");
                 stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
                 stage.setResizable(false);
+                //stage.setOnHiding();
                 stage.show();
             } catch (IOException e) {
                 System.out.println(e.getMessage());

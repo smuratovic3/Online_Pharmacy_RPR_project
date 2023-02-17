@@ -42,43 +42,6 @@ public class CategoryController {
         }
     }
 
-    public void addCategory(ActionEvent event)
-    {
-        try {
-            Category c = new Category();
-            c.setName(categoryName.getText());
-            c = manager.add(c);
-            categoriesList.getItems().add(c);
-            categoryName.setText("");
-            //refreshCategories();
-        }catch (MedicineException e){
-            new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
-        }
-    }
-
-    public void updateCategory(ActionEvent event)
-    {
-        try {
-            Category cat = categoriesList.getSelectionModel().getSelectedItem();
-            cat.setName(categoryName.getText());
-            cat = manager.update(cat);
-            refreshCategories();
-        }catch (MedicineException e){
-            new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
-        }
-    }
-
-    public void deleteCategory(ActionEvent event)
-    {
-        try {
-            Category cat = categoriesList.getSelectionModel().getSelectedItem();
-            manager.delete(cat.getId());
-            //refreshCategories();
-            categoriesList.getItems().remove(cat); // perf optimization
-        }catch (MedicineException e){
-            new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
-        }
-    }
 
     private void refreshCategories() throws MedicineException
     {

@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import java.sql.*;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -51,4 +52,9 @@ public class CategoryDaoSQLImpl extends AbstractDao<Category> implements Categor
         return row;
     }
 
+    @Override
+    public List<Category> searchCategoryId(String categoryName) throws MedicineException
+    {
+        return executeQuery("SELECT * FROM Categories WHERE name = ?", new Object[]{categoryName});
+    }
 }
