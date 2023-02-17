@@ -10,6 +10,9 @@ public class IntermediateTable {
     private OnlineOrder orderOnline;
 
 
+    /**
+     * This class provides getters and setters for accessing and modifying the medicine and online order associated with the intermediate table entry.
+     */
     public Medicine getMedicine() {
         return medicine;
     }
