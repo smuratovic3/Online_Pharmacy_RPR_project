@@ -76,10 +76,18 @@ public class Medicine implements Idable {
         this.quantity = quantity;
     }
 
+    /**
+     * Getter for Description
+     * @return String
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Setter for description
+     * @param description string
+     */
     public void setDescription(String description) {
         this.description = description;
     }
