@@ -4,9 +4,6 @@ import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
-import javafx.scene.control.CheckBox;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**

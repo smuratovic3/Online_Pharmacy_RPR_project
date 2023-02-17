@@ -17,7 +17,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
-import java.util.Locale;
 import java.util.Objects;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -149,9 +148,6 @@ public class MedicineController {
             e.printStackTrace();
         }
         }
-
-
-
     }
 
 }
