@@ -46,8 +46,16 @@ public class Medicine implements Idable {
         this.name = name;
     }
 
+    /**
+     * Getter for Price
+     * @return int
+     */
     public int getPrice() {return price;}
 
+    /**
+     * Setter for price
+     * @param price int
+     */
     public void setPrice(int price) {
         this.price = price;
     }
