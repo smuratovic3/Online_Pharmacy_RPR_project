@@ -67,7 +67,7 @@ public class User implements Idable {
     public String getName() {
         return name;
     }
-    
+
     /**
      * Setter for name
      * @param name String
@@ -76,10 +76,18 @@ public class User implements Idable {
         this.name = name;
     }
 
+    /**
+     * Getter for surname
+     * @return String
+     */
     public String getSurname() {
         return surname;
     }
 
+    /**
+     * Setter for surname
+     * @param surname String
+     */
     public void setSurname(String surname) {
         this.surname = surname;
     }
