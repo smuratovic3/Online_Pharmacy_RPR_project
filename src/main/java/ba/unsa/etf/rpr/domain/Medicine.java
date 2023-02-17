@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.domain;
 import java.util.Objects;
 
 /**
- * Information about medicines
+ * Class that gives me information about medicines
  * @author Semina Muratović
  **/
 public class Medicine implements Idable {
