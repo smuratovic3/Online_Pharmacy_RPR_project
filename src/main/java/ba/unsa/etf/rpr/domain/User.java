@@ -110,10 +110,18 @@ public class User implements Idable {
         this.address = address;
     }
 
+    /**
+     * Getter for phone
+     * @return int
+     */
     public int getPhone() {
         return phone;
     }
 
+    /**
+     * Setter for address
+     * @param phone String
+     */
     public void setPhone(int phone) {
         this.phone = phone;
     }
