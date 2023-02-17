@@ -30,10 +30,18 @@ public class Medicine implements Idable {
         this.id = id;
     }
 
+    /**
+     * Getter for Name
+     * @return String
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Setter for id
+     * @param name String
+     */
     public void setName(String name) {
         this.name = name;
     }
