@@ -29,11 +29,20 @@ public class Category implements Idable{
         this.id = id;
     }
 
+
+    /**
+     * Getter for name
+     * @return string
+     */
     public String getName()
     {
         return name;
     }
 
+    /**
+     * Setter for name
+     * @param name string
+     */
     public void setName(String name)
     {
         this.name = name;
