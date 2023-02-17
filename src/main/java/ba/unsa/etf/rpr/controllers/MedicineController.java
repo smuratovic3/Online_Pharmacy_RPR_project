@@ -117,6 +117,27 @@ public class MedicineController {
         }
     }
 
+    public void actionAboutUs(ActionEvent actionEvent) throws IOException
+    {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/aboutus.fxml")));
+        stage.setTitle("About us");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
+
+    }
+
+    public void helpAction(ActionEvent actionEvent) throws IOException
+    {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/help.fxml")));
+        stage.setTitle("Help");
+        stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        stage.setResizable(false);
+        stage.show();
+    }
+
     public void windowMyList(ActionEvent actionEvent) {
         try {
             Stage stage = new Stage();

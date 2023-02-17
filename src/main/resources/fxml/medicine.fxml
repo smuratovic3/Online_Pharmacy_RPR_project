@@ -174,9 +174,9 @@
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
-            <Button mnemonicParsing="false" styleClass="tbButton" text="Help" />
+          <Button fx:id="about" mnemonicParsing="false" onAction="#actionAboutUs" styleClass="tbButton" text="About us" />
             <Separator orientation="VERTICAL" />
-          <Button mnemonicParsing="false" styleClass="tbButton" text="About us" />
+            <Button fx:id="help" mnemonicParsing="false" onAction="#helpAction" styleClass="tbButton" text="Help" />
             <Separator orientation="VERTICAL" />
             <Button mnemonicParsing="false" onAction="#windowMyList" styleClass="tbButton" text="MyList" />
         </items>
