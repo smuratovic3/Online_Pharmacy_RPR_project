@@ -119,17 +119,25 @@ public class User implements Idable {
     }
 
     /**
-     * Setter for address
+     * Setter for phone
      * @param phone String
      */
     public void setPhone(int phone) {
         this.phone = phone;
     }
 
+    /**
+     * Getter for email
+     * @return String
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Setter for email
+     * @param email String
+     */
     public void setEmail(String email) {
         this.email = email;
     }
