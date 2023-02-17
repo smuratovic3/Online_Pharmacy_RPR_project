@@ -46,7 +46,46 @@ public class App
 
             }
         }
-        
+        else  if (type == 1) {
+            try {
+                String name;
+                String surname;
+                String address;
+                String phone;
+                String email;
+                String password;
+
+                System.out.println("Name: ");
+                Scanner nameSc = new Scanner(System.in);
+                name = nameSc.next();
+                System.out.println("Surname: ");
+                Scanner surnameSc = new Scanner(System.in);
+                surname = surnameSc.next();
+                System.out.println("Address: ");
+                Scanner addressSc = new Scanner(System.in);
+                address = addressSc.next();
+                System.out.println("Phone: ");
+                Scanner phoneSc = new Scanner(System.in);
+                phone = phoneSc.next();
+                System.out.println("Email: ");
+                Scanner emailSc = new Scanner(System.in);
+                email = emailSc.next();
+                System.out.println("Password: ");
+                Scanner passwordSc = new Scanner(System.in);
+                password = passwordSc.next();
+                User user = new User();
+                user.setName(name);
+                user.setPhone(Integer.parseInt(phone));
+                user.setSurname(surname);
+                user.setEmail(email);
+                user.setAddress(address);
+                user.setPassword(password);
+                UserManager.add(user);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
 
 
 
