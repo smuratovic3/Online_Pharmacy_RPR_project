@@ -93,7 +93,10 @@ public class Medicine implements Idable {
     }
 
 
-
+    /**
+     * Getter for Category
+     * @return category
+     */
     public Category getCategory() {
         return category;
     }
