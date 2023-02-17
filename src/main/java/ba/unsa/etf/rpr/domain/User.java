@@ -92,10 +92,20 @@ public class User implements Idable {
         this.surname = surname;
     }
 
+
+    /**
+     * Getter for address
+     * @return String
+     */
     public String getAddress() {
         return address;
     }
 
+
+    /**
+     * Setter for address
+     * @param address String
+     */
     public void setAddress(String address) {
         this.address = address;
     }
