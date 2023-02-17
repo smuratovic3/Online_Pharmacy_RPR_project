@@ -60,10 +60,18 @@ public class Medicine implements Idable {
         this.price = price;
     }
 
+    /**
+     * Getter for Quantity
+     * @return int
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * Setter for quantity
+     * @param quantity int
+     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
