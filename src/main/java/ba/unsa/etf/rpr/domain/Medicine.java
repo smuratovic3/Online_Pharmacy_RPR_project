@@ -14,10 +14,18 @@ public class Medicine implements Idable {
     private String description;
     private Category category;
 
+    /**
+     * Getter for Id
+     * @return int
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Setter for id
+     * @param id int
+     */
     public void setId(int id) {
         this.id = id;
     }
