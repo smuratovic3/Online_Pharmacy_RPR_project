@@ -142,10 +142,18 @@ public class User implements Idable {
         this.email = email;
     }
 
+    /**
+     * Getter for password
+     * @return String
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Setter for password
+     * @param password String
+     */
     public void setPassword(String password) {
         this.password = password;
     }
