@@ -4,8 +4,11 @@ package ba.unsa.etf.rpr.domain;
  *  This class is Intermediate table - one medicine can be in more than one order, and one order can contain more than one medicine
  * @author Semina Muratović
  **/
-public class IntermediateTable {
+public class IntermediateTable implements Idable {
 
+
+
+    private int id;
     private Medicine medicine;
     private OnlineOrder orderOnline;
 
@@ -28,4 +31,14 @@ public class IntermediateTable {
     public void setOrderOnline(OnlineOrder orderOnline) {
         this.orderOnline = orderOnline;
     }
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }
