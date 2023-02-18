@@ -62,7 +62,7 @@ public class OnlineOrderController {
         }
 
         intermediateTable.setMedicine(model.getMedicine());
-        System.out.println(intermediateTable.getMedicine().getName() + " " + intermediateTable.getOrderOnline().getBill());
+        System.out.println( intermediateTable.getMedicine().getName() + " " + intermediateTable.getOrderOnline().getBill());
         IntermediateManager intermediateManager = new IntermediateManager();
         intermediateManager.add(intermediateTable);
 

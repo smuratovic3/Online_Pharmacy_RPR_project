@@ -8,7 +8,7 @@ public class Model {
      */
     private static Model instance;
     /**
-     * The current train data.
+     * The current medicine data.
      */
     private Medicine medicine;
     /**
@@ -16,7 +16,7 @@ public class Model {
      */
     private User user;
     /**
-     * The current reservation data.
+     * The current order data.
      */
     private OnlineOrder onlineOrder;
     private Category category;
@@ -48,16 +48,16 @@ public class Model {
     }
 
     /**
-     * A getter method for the current train data.
-     * @return the current train data
+     * A getter method for the current medicine data.
+     * @return the current medicine data
      */
     public Medicine getMedicine() {
         return medicine;
     }
 
     /**
-     * A setter method for the current train data.
-     * @param medicine the train data to set
+     * A setter method for the current medicine data.
+     * @param medicine the medicine data to set
      */
     public void setMedicine(Medicine medicine) {
         this.medicine = medicine;
@@ -80,16 +80,16 @@ public class Model {
     }
 
     /**
-     * A getter method for the current reservation data.
-     * @return the current reservation data
+     * A getter method for the current order data.
+     * @return the current order data
      */
     public OnlineOrder getOnlineOrder() {
         return onlineOrder;
     }
 
     /**
-     * A setter method for the current reservation data.
-     * @param onlineOrder the reservation data to set
+     * A setter method for the current order data.
+     * @param onlineOrder the order data to set
      */
     public void setOnlineOrder(OnlineOrder onlineOrder) {
         this.onlineOrder = onlineOrder;
