@@ -38,7 +38,7 @@ public class OnlineOrderDaoSQLImpl extends AbstractDao<OnlineOrder> implements O
             OnlineOrder q = new OnlineOrder();
             q.setId(rs.getInt("id"));
             q.setBill(rs.getInt("bill"));
-            q.setUser(DaoFactory.onlineOrderDao().getById(rs.getInt("user_Id")).getUser());
+            q.setUser(DaoFactory.userDao().getById(rs.getInt("user_Id")));
             return q;
         } catch (Exception e) {
             throw new MedicineException(e.getMessage(), e);
