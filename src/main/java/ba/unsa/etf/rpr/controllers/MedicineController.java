@@ -67,7 +67,21 @@ public class MedicineController {
                 System.out.println(medicine.getName());
 
                 // Add  logic here to handle the button click event
-                Stage stage = new Stage();
+                try {
+                    Stage stage = new Stage();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/onlineorder.fxml"));
+                    OnlineOrderController onlineOrderController = new OnlineOrderController();
+                    loader.setController(onlineOrderController);
+                    Parent root = loader.load();
+                    stage.setTitle("Online order");
+                    stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+                    stage.setResizable(false);
+                    //stage.setOnHiding();
+                    stage.show();
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+                /*Stage stage = new Stage();
                 Parent root = null;
                 try {
                     root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/onlineorder.fxml")));
@@ -79,6 +93,8 @@ public class MedicineController {
                 stage.setResizable(false);
                 //stage.setOnHiding();
                 stage.show();
+
+                 */
             });
         }
         @Override
@@ -119,27 +135,75 @@ public class MedicineController {
 
     public void actionAboutUs(ActionEvent actionEvent) throws IOException
     {
-        Stage stage = new Stage();
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/aboutus.fxml"));
+            AboutUsController aboutUsController = new AboutUsController();
+            loader.setController(aboutUsController);
+            Parent root = loader.load();
+            stage.setTitle("About us");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            //stage.setOnHiding();
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        /*Stage stage = new Stage();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/aboutus.fxml")));
         stage.setTitle("About us");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
 
+         */
+
     }
 
     public void helpAction(ActionEvent actionEvent) throws IOException
     {
-        Stage stage = new Stage();
+        try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/help.fxml"));
+            HelpController helpController = new HelpController();
+            loader.setController(helpController);
+            Parent root = loader.load();
+            stage.setTitle("Help");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            //stage.setOnHiding();
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        /*Stage stage = new Stage();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/help.fxml")));
         stage.setTitle("Help");
         stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         stage.setResizable(false);
         stage.show();
+
+         */
     }
 
+
     public void windowMyList(ActionEvent actionEvent) {
+
         try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/mylist.fxml"));
+            MyListController myListController = new MyListController();
+            loader.setController(myListController);
+            Parent root = loader.load();
+            stage.setTitle("My list");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            //stage.setOnHiding();
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+         /*try {
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/mylist.fxml")));
             stage.setTitle("My List");
@@ -148,8 +212,11 @@ public class MedicineController {
             stage.show();
         } catch (IOException e) {
             System.out.println(e.getMessage());
-        }
+        }*/
+
     }
+
+
 
 
 

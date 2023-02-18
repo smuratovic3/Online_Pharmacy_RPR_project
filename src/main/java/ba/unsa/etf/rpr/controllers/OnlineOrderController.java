@@ -55,7 +55,22 @@ public class OnlineOrderController {
 
      */
     public void confirm(ActionEvent actionEvent) {
+
         try {
+            Stage stage = new Stage();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/confirmorder.fxml"));
+            ConfirmOrderController confirmOrderController = new ConfirmOrderController();
+            loader.setController(confirmOrderController);
+            Parent root = loader.load();
+            stage.setTitle("Confirm order");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            //stage.setOnHiding();
+            stage.show();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+       /* try {
           //  insertData();
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/confirmorder.fxml")));
@@ -65,7 +80,7 @@ public class OnlineOrderController {
             stage.show();
         } catch (IOException e) {
             System.out.println(e.getMessage());
-        }
+        }*/
     }
 
     public void cancelAction(ActionEvent actionEvent) {
