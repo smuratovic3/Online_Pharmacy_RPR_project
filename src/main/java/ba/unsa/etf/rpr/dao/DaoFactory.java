@@ -13,6 +13,7 @@ public class DaoFactory {
     private static final MedicineDao medicineDao = MedicineDaoSQLImpl.getInstance();
     private static final OnlineOrderDao onlineOrderDao = OnlineOrderDaoSQLImpl.getInstance();
     private static final UserDao userDao = UserDaoSQLImpl.getInstance();
+    private static final IntermediateDao intermediateDao = IntermediateDaoSQLImpl.getInstance();
 
     private DaoFactory(){}
 
@@ -33,6 +34,11 @@ public class DaoFactory {
     {
         return userDao;
     }
+    public static IntermediateDao intermediateDao()
+    {
+        return intermediateDao;
+    }
+
 
 
 
