@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="456.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
+<BorderPane prefHeight="456.0" prefWidth="616.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@/css/registration.css" />
 
@@ -23,7 +23,7 @@
    <bottom>
       <ButtonBar prefHeight="33.0" prefWidth="602.0" BorderPane.alignment="CENTER">
         <buttons>
-          <Button defaultButton="true" mnemonicParsing="false" onAction="#actionSubmit" styleClass="buttonss" text="Ok" />
+          <Button fx:id="btnOkId" defaultButton="true" mnemonicParsing="false" onAction="#actionSubmit" styleClass="buttonss" text="Ok" />
             <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" onAction="#actionClose" styleClass="buttonsss" text="Cancel" />
         </buttons>
          <padding>

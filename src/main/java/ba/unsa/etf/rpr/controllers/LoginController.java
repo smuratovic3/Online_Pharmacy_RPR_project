@@ -108,6 +108,7 @@ public class LoginController {
                 Stage stage = new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/medicine.fxml"));
                 MedicineController medicineController = new MedicineController(id);
+                //System.out.println("Ušao je" + " " + id);
                 loader.setController(medicineController);
                 Parent root = loader.load();
                 stage.setTitle("Medicine");

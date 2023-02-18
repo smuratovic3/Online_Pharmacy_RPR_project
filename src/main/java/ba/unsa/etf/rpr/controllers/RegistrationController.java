@@ -10,15 +10,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.List;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.regex.Pattern;
@@ -27,6 +26,7 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class RegistrationController {
     public Button btnCancel;
+    public Button btnOkId;
     public Label messageLabel1;
     public TextField emailField;
     public PasswordField passwordField;
@@ -42,6 +42,10 @@ public class RegistrationController {
     public Label messageLabel6;
 
     UserManager userManager = new UserManager();
+    private int idR;
+  //  private int registeredUserId;
+
+
 
     /**
      Initializes the form by adding event listeners to the form fields.
@@ -49,7 +53,7 @@ public class RegistrationController {
 
 
     public void actionSubmit(ActionEvent actionEvent) throws IOException, MedicineException {
-
+        List<User> listaRegistrovanihUsera = userManager.getAll();
         //Retrieve user input form form field
         String nameInput = nameField.getText();
         String surnameInput = surnameField.getText();
@@ -101,6 +105,15 @@ public class RegistrationController {
                 check = true;
             }
         }
+
+        if (!nameField.getText().isEmpty() && !surnameField.getText().isEmpty() && !addressField.getText().isEmpty() && !phoneField.getText().isEmpty()&& !emailField.getText().isEmpty() && !passwordField.getText().isEmpty()) {
+            for (User u : listaRegistrovanihUsera) {
+                if (u.getEmail().equals(emailField.getText()) && u.getPassword().equals(passwordField.getText())) {
+                    check = true;
+                    idR = u.getId();
+                }
+            }
+        }
         if (!check) {
             // Create a new user data object and set the instance variables
             User user = new User();
@@ -124,12 +137,47 @@ public class RegistrationController {
                 User insertedUser = userManager.add(user);
 
                 // Check if the user object was returned by the add User method from UserDaoSQLImpl.java
-                Stage stage = new Stage();
+                try {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Registration");
+                    alert.setHeaderText("Results:");
+                    alert.setContentText("Thank you for registration! Please log in.");
+                    alert.showAndWait();
+
+                    Stage stage = (Stage) btnOkId.getScene().getWindow();
+                    stage.close();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+                    fxmlLoader.setController(new LoginController());
+                    Parent root = fxmlLoader.load();
+                    stage.setScene(new Scene(root, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE));
+                    stage.setResizable(false);
+                    stage.show();
+
+                } catch (Exception e) {
+                    new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+                }
+
+                    /*Stage stage = new Stage();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/medicine.fxml"));
+                    MedicineController medicineController = new MedicineController(idR);
+                   // System.out.println("Ušao je" + " " + idR);
+                    loader.setController(medicineController);
+                    Parent root = loader.load();
+                    stage.setTitle("Medicine");
+                    stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+                    stage.setResizable(false);
+                    //stage.setOnHiding();
+                    stage.show();
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }*/
+                /*Stage stage = new Stage();
                 Parent root = FXMLLoader.load(getClass().getResource("/fxml/medicine.fxml"));
                 stage.setTitle("Home page");
                 stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
                 stage.setResizable(false);
                 stage.show();
+                */
 
                 // Close the connection to the database
                 connection.close();

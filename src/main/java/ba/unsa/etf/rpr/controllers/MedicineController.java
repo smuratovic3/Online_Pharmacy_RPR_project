@@ -44,12 +44,15 @@ public class MedicineController {
     public TableColumn<Medicine, Integer> orderColumn;
     private int loggedUserId;
 
+
     public MedicineController() {
     }
 
     public MedicineController(int loggedUserId) {
         this.loggedUserId = loggedUserId;
+        System.out.println("User" + " " + loggedUserId);
     }
+
 
     @FXML
     public void initialize()
