@@ -89,11 +89,14 @@ public class LoginController {
             badPasswordIN.setText("");
         }
 
+        Model modelUser =  Model.getInstance();
         if (!emailField.getText().isEmpty() && !passwordField.getText().isEmpty()) {
             for (User u : listaUsera) {
                 if (u.getEmail().equals(emailField.getText()) && u.getPassword().equals(passwordField.getText())) {
                     loginSuccessful = true;
                     id = u.getId();
+                    modelUser.setUser(u);
+
                 }
             }
         }
