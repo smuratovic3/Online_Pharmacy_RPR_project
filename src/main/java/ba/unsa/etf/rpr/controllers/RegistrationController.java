@@ -42,8 +42,8 @@ public class RegistrationController {
     public Label messageLabel6;
 
     UserManager userManager = new UserManager();
-    private int idR;
-  //  private int registeredUserId;
+
+
 
 
 
@@ -110,7 +110,6 @@ public class RegistrationController {
             for (User u : listaRegistrovanihUsera) {
                 if (u.getEmail().equals(emailField.getText()) && u.getPassword().equals(passwordField.getText())) {
                     check = true;
-                    idR = u.getId();
                 }
             }
         }

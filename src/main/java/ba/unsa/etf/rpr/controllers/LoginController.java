@@ -36,7 +36,6 @@ public class LoginController {
     UserManager userManager = new UserManager();
     private int id;
 
-   // public String email;
 
     @FXML
     public void initialize()
@@ -53,15 +52,12 @@ public class LoginController {
                     emailField.getStyleClass().removeAll("poljeNijeIspravno");
                     emailField.getStyleClass().add("poljeJeIspravno");
                 }
-                //email = emailField.getText();
             }
         });
 
     }
-   /* public String getEmail() {
-        return email;
-    }
-*/
+
+
     public void actionClose(ActionEvent actionEvent)
     {
         Stage stage =(Stage)btnCancel.getScene().getWindow();
