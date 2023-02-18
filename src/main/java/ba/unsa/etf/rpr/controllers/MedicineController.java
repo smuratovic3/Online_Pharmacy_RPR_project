@@ -67,6 +67,8 @@ public class MedicineController {
         public OrderCell() {
             btn.setOnAction(event -> {
                 medicine = getTableView().getItems().get(getIndex());
+                Model model = Model.getInstance();
+                model.setMedicine(medicine);
                 System.out.println(medicine.getName());
 
                 // Add  logic here to handle the button click event
