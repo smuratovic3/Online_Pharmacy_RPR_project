@@ -1,6 +1,11 @@
 package ba.unsa.etf.rpr.controllers;
 
 
+import ba.unsa.etf.rpr.business.IntermediateManager;
+import ba.unsa.etf.rpr.business.OnlineOrderManager;
+import ba.unsa.etf.rpr.domain.IntermediateTable;
+import ba.unsa.etf.rpr.domain.OnlineOrder;
+import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +15,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
+
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -20,7 +27,7 @@ public class OnlineOrderController {
     public Label medicinePrice;
     public Label medicineQuantity;
     public Label medicineDescription;
-
+    OnlineOrderManager onlineOrderManager = new OnlineOrderManager();
     private String email;
    // private  LoginController loginController= new LoginController();
 
@@ -35,28 +42,38 @@ public class OnlineOrderController {
 
     }
 
-    /*public void insertData(){
-        String query2 = "INSERT INTO OnlineOrder  VALUES (?,?,?)";
-        try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://sql.freedb.tech:3306/freedb_RPR_baza",
-                    "freedb_smuratovic3", "JSkRP5Z5XgZ7T*a");
-            PreparedStatement preparedStmt = connection.prepareStatement(query2);
-            preparedStmt.setInt(1, 3);
-            preparedStmt.setInt(2, MedicineController.medicine.getPrice());
-            preparedStmt.setInt(3, UserManager.findEmail(loginController.getEmail()).getId());
+    public void insertData() throws MedicineException {
+        Model model = Model.getInstance();
+        OnlineOrder onlineOrder = new OnlineOrder();
+        onlineOrder.setUser(model.getUser());
+        onlineOrder.setBill(model.getMedicine().getPrice());
 
-            preparedStmt.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (MedicineException e) {
-            throw new RuntimeException(e);
+        onlineOrderManager.add(onlineOrder);
+
+        IntermediateTable intermediateTable = new IntermediateTable();
+        List<OnlineOrder> lista = onlineOrderManager.getAll();
+        System.out.println("OK ");
+        for(OnlineOrder o : lista){
+            if(o.getBill() == onlineOrder.getBill() && o.getUser().equals(onlineOrder.getUser())){
+                model.setOnlineOrder(o);
+                intermediateTable.setOrderOnline(model.getOnlineOrder());
+                System.out.println("OK ");
+            }
         }
+
+        intermediateTable.setMedicine(model.getMedicine());
+        System.out.println(intermediateTable.getMedicine().getName() + " " + intermediateTable.getOrderOnline().getBill());
+        IntermediateManager intermediateManager = new IntermediateManager();
+        intermediateManager.add(intermediateTable);
+
+
     }
 
-     */
+
     public void confirm(ActionEvent actionEvent) {
 
         try {
+            insertData();
             Stage stage = new Stage();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/confirmorder.fxml"));
             ConfirmOrderController confirmOrderController = new ConfirmOrderController();
@@ -67,7 +84,7 @@ public class OnlineOrderController {
             stage.setResizable(false);
             //stage.setOnHiding();
             stage.show();
-        } catch (IOException e) {
+        } catch (IOException | MedicineException e) {
             System.out.println(e.getMessage());
         }
        /* try {

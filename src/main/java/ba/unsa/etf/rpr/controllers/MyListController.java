@@ -7,6 +7,11 @@ import javafx.stage.Stage;
 public class MyListController {
     public Button btnClose;
 
+
+    public void initialize(){
+
+    }
+
     public void actionClose(ActionEvent actionEvent)
     {
         Stage stage =(Stage)btnClose.getScene().getWindow();
