@@ -72,6 +72,11 @@ public class DaoFactory {
     {
         return userDao;
     }
+
+    /**
+     * Returns a singleton instance of the IntermediateDao class.
+     * @return A singleton instance of the IntermediateDao class.
+     */
     public static IntermediateDao intermediateDao()
     {
         return intermediateDao;
