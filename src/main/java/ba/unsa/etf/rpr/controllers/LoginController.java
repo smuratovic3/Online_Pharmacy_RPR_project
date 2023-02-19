@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.domain.OnlineOrder;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.beans.value.ChangeListener;
@@ -96,7 +97,6 @@ public class LoginController {
                     loginSuccessful = true;
                     id = u.getId();
                     modelUser.setUser(u);
-
                 }
             }
         }
