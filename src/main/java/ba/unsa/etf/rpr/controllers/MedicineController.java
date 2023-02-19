@@ -47,7 +47,7 @@ public class MedicineController {
 
     public MedicineController(int loggedUserId) {
         this.loggedUserId = loggedUserId;
-        System.out.println("User" + " " + loggedUserId);
+        //System.out.println("User" + " " + loggedUserId);
     }
 
 
@@ -175,11 +175,6 @@ public class MedicineController {
             System.out.println(e.getMessage());
         }
     }
-
-
-
-
-
 
     public void handleRadioButtonClick(ActionEvent actionEvent) {
 
