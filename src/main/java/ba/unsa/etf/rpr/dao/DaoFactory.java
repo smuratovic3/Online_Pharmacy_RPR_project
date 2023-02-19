@@ -46,6 +46,10 @@ public class DaoFactory {
         return categoryDao;
     }
 
+    /**
+     * Returns a singleton instance of the MedicineDao class.
+     * @return A singleton instance of the MedicineDao class.
+     */
     public static MedicineDao medicineDao()
     {
         return medicineDao;
