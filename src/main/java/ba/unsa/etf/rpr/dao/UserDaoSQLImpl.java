@@ -64,7 +64,11 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
         }
     }
 
-
+    /**
+     * Takes in a User object and converts it into a Map of String keys and Object values.
+     * @param object - a bean object for specific table
+     * @return A Map containing the fields of the User object as key-value pairs.
+     */
     @Override
     public Map<String, Object> object2row(User object)
     {
