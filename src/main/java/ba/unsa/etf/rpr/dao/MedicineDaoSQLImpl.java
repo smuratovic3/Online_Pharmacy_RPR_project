@@ -1,12 +1,9 @@
 package ba.unsa.etf.rpr.dao;
 
-import ba.unsa.etf.rpr.business.IntermediateManager;
 import ba.unsa.etf.rpr.domain.Category;
-import ba.unsa.etf.rpr.domain.IntermediateTable;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -60,10 +57,7 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
         }
     }
 
-    /**
-     * @param object - object to be mapped
-     * @return map representation of object
-     */
+
     @Override
     public Map<String, Object> object2row(Medicine object)
     {
@@ -77,11 +71,7 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
         return item;
     }
 
-    /**
-     * @param text search string for medicine
-     * @return list of medicines
-     * @author Semina Muratovic
-     */
+
 
     @Override
     public List<Medicine> searchByText(String text) throws MedicineException
@@ -89,11 +79,7 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
         return executeQuery("SELECT * FROM Medicine WHERE name LIKE concat('%', ?, '%')", new Object[]{text});
     }
 
-    /**
-     * @param category search string for medicines
-     * @return list of medicine
-     * @author Semina Muratovic
-     */
+    
     @Override
     public List<Medicine> searchByCategory(Category category) throws MedicineException
     {
