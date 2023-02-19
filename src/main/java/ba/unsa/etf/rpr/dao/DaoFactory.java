@@ -7,10 +7,29 @@ package ba.unsa.etf.rpr.dao;
  * @author Semina Muratovic
  */
 public class DaoFactory {
+    /**
+     * A singleton instance of the CategoryDao class, which is used to access and manipulate train data in a database.
+     */
     private static final CategoryDao categoryDao = CategoryDaoSQLImpl.getInstance();
+
+    /**
+     * A singleton instance of the MedicineDao class, which is used to access and manipulate train data in a database.
+     */
     private static final MedicineDao medicineDao = MedicineDaoSQLImpl.getInstance();
+
+    /**
+     * A singleton instance of the OnlineOrderDao class, which is used to access and manipulate train data in a database.
+     */
     private static final OnlineOrderDao onlineOrderDao = OnlineOrderDaoSQLImpl.getInstance();
+
+    /**
+     * A singleton instance of the UserDao class, which is used to access and manipulate train data in a database.
+     */
     private static final UserDao userDao = UserDaoSQLImpl.getInstance();
+
+    /**
+     * A singleton instance of the IntermediateDao class, which is used to access and manipulate train data in a database.
+     */
     private static final IntermediateDao intermediateDao = IntermediateDaoSQLImpl.getInstance();
 
     private DaoFactory(){}
