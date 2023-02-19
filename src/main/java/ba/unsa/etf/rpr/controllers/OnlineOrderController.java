@@ -16,7 +16,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -29,7 +28,7 @@ public class OnlineOrderController {
     public Label medicineDescription;
     OnlineOrderManager onlineOrderManager = new OnlineOrderManager();
     private String email;
-   // private  LoginController loginController= new LoginController();
+
 
 
     @FXML
@@ -47,17 +46,20 @@ public class OnlineOrderController {
         OnlineOrder onlineOrder = new OnlineOrder();
         onlineOrder.setUser(model.getUser());
         onlineOrder.setBill(model.getMedicine().getPrice());
-
         onlineOrderManager.add(onlineOrder);
 
         IntermediateTable intermediateTable = new IntermediateTable();
         List<OnlineOrder> lista = onlineOrderManager.getAll();
-        System.out.println("OK ");
+       // System.out.println("OK ");
         for(OnlineOrder o : lista){
             if(o.getBill() == onlineOrder.getBill() && o.getUser().equals(onlineOrder.getUser())){
                 model.setOnlineOrder(o);
+
                 intermediateTable.setOrderOnline(model.getOnlineOrder());
-                System.out.println("OK ");
+                System.out.println("OK " + model.getOnlineOrder());
+                //
+                //
+                // System.out.println("OK ");
             }
         }
 
@@ -87,17 +89,7 @@ public class OnlineOrderController {
         } catch (IOException | MedicineException e) {
             System.out.println(e.getMessage());
         }
-       /* try {
-          //  insertData();
-            Stage stage = new Stage();
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/confirmorder.fxml")));
-            stage.setTitle("Confirm");
-            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            stage.setResizable(false);
-            stage.show();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }*/
+
     }
 
     public void cancelAction(ActionEvent actionEvent) {
