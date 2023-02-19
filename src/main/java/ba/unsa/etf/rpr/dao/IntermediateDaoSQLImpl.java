@@ -23,7 +23,7 @@ public class IntermediateDaoSQLImpl extends AbstractDao<IntermediateTable> imple
         super("IntermediateTable");
     }
 
-    
+
     /**
      * @author Semina Muratovic
      * @return MedicineDaoSQLImpl
@@ -42,6 +42,12 @@ public class IntermediateDaoSQLImpl extends AbstractDao<IntermediateTable> imple
         if(instance!=null)
             instance=null;
     }
+
+    /**
+     * @param rs The result set from the database query
+     * @return A intermediate  object with properties set according to the values in the result set
+     * @throws MedicineException if there is an error when retrieving values from the result set
+     */
 
     @Override
     public IntermediateTable row2object(ResultSet rs) throws MedicineException
