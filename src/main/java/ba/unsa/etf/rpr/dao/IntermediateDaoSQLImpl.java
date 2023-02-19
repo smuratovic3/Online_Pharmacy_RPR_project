@@ -76,6 +76,13 @@ public class IntermediateDaoSQLImpl extends AbstractDao<IntermediateTable> imple
         item.put("onlineOrder_Id", object.getOrderOnline().getId());
         return item;
     }
+
+    /**
+     * Fetches all orders from database with given idUser
+     * @param idUser int
+     * @return List of Medicines
+     * @throws MedicineException in case of problems with database
+     */
     @Override
     public List<Medicine> getByUser(int idUser) throws MedicineException {
         try {
