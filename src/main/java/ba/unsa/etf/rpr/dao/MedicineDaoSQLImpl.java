@@ -94,7 +94,11 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
         return executeQuery("SELECT * FROM Medicine WHERE name LIKE concat('%', ?, '%')", new Object[]{text});
     }
 
-
+    /**
+     * @param category search string for medicines
+     * @return list of medicine
+     * @author Semina Muratovic
+     */
     @Override
     public List<Medicine> searchByCategory(Category category) throws MedicineException
     {
