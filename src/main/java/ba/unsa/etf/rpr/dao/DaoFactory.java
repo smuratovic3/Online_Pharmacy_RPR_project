@@ -32,6 +32,9 @@ public class DaoFactory {
      */
     private static final IntermediateDao intermediateDao = IntermediateDaoSQLImpl.getInstance();
 
+    /**
+     * A private constructor to prevent instantiation of this class.
+     */
     private DaoFactory(){}
 
     public static CategoryDao categoryDao()
