@@ -21,13 +21,6 @@ public class Model {
     private OnlineOrder onlineOrder;
     private Category category;
 
-    public IntermediateTable getIntermediateTable() {
-        return intermediateTable;
-    }
-
-    public void setIntermediateTable(IntermediateTable intermediateTable) {
-        this.intermediateTable = intermediateTable;
-    }
 
     private IntermediateTable intermediateTable;
 
@@ -102,4 +95,12 @@ public class Model {
     public Category getCategory() {
         return category;
     }
+    public IntermediateTable getIntermediateTable() {
+        return intermediateTable;
+    }
+
+    public void setIntermediateTable(IntermediateTable intermediateTable) {
+        this.intermediateTable = intermediateTable;
+    }
+
 }
