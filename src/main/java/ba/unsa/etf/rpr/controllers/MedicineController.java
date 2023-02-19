@@ -6,7 +6,6 @@ import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +16,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 
@@ -25,7 +23,6 @@ public class MedicineController {
 
     @FXML
     public TableView<Medicine> medicineTable;
-    public ObservableList<Medicine> lista = FXCollections.observableArrayList();
     public TextField searchText;
     private final MedicineManager medicineManager = new MedicineManager();
     private final CategoryManager categoryManager = new CategoryManager();
@@ -86,20 +83,6 @@ public class MedicineController {
                 } catch (IOException e) {
                     System.out.println(e.getMessage());
                 }
-                /*Stage stage = new Stage();
-                Parent root = null;
-                try {
-                    root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/onlineorder.fxml")));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                stage.setTitle("Online order");
-                stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-                stage.setResizable(false);
-                //stage.setOnHiding();
-                stage.show();
-
-                 */
             });
         }
         @Override
@@ -154,15 +137,6 @@ public class MedicineController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        /*Stage stage = new Stage();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/aboutus.fxml")));
-        stage.setTitle("About us");
-        stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-        stage.setResizable(false);
-        stage.show();
-
-         */
-
     }
 
     public void helpAction(ActionEvent actionEvent) throws IOException
@@ -181,14 +155,6 @@ public class MedicineController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        /*Stage stage = new Stage();
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/help.fxml")));
-        stage.setTitle("Help");
-        stage.setScene(new Scene(root, USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
-        stage.setResizable(false);
-        stage.show();
-
-         */
     }
 
 
@@ -208,17 +174,6 @@ public class MedicineController {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-         /*try {
-            Stage stage = new Stage();
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/mylist.fxml")));
-            stage.setTitle("My List");
-            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            stage.setResizable(false);
-            stage.show();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }*/
-
     }
 
 
