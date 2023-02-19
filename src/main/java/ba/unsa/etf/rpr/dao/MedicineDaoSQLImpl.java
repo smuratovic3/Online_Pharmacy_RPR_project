@@ -1,9 +1,12 @@
 package ba.unsa.etf.rpr.dao;
 
+import ba.unsa.etf.rpr.business.IntermediateManager;
 import ba.unsa.etf.rpr.domain.Category;
+import ba.unsa.etf.rpr.domain.IntermediateTable;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -96,7 +99,6 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
     {
         return executeQuery("SELECT * FROM Medicine WHERE categories_Id = ?", new Object[]{category.getId()});
     }
-
 
 
 
