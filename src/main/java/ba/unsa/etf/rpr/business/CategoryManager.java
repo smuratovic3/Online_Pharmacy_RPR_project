@@ -66,5 +66,4 @@ public class CategoryManager {
     public List<Category> searchCategoryId(String name) throws MedicineException{
         return DaoFactory.categoryDao().searchCategoryId(name);
     }
-
 }
