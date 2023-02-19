@@ -64,6 +64,10 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
     }
 
 
+    /**
+     * @param object - object to be mapped
+     * @return map representation of object
+     */
     @Override
     public Map<String, Object> object2row(Medicine object)
     {
