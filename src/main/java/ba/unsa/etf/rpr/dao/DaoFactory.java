@@ -37,6 +37,10 @@ public class DaoFactory {
      */
     private DaoFactory(){}
 
+    /**
+     * Returns a singleton instance of the CategoryDao class.
+     * @return A singleton instance of the CategoryDao class.
+     */
     public static CategoryDao categoryDao()
     {
         return categoryDao;
