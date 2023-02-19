@@ -1,11 +1,9 @@
 package ba.unsa.etf.rpr.dao;
 
-import ba.unsa.etf.rpr.domain.OnlineOrder;
-import ba.unsa.etf.rpr.domain.User;
 
 /**
- * Factory method for singleton implementation of DAOs
- *
+ * The DaoFactory class provides static methods to get instances of CategoryDao, UserDao, MedicineDao, OnlineOrderDao, IntermediateDao.
+ * These instances are implemented using the SQL database, using the SQL implementations of each Dao.
  * @author Semina Muratovic
  */
 public class DaoFactory {
