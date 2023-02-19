@@ -37,9 +37,4 @@ public class UserManager {
         return DaoFactory.userDao().getAll();
     }
 
-
-
-
-
-
-    }
+}
