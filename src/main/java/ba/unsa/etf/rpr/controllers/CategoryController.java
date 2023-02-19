@@ -5,13 +5,9 @@ import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 /**
  * JavaFX controller for category management
@@ -52,6 +48,5 @@ public class CategoryController {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
         }
     }
-
 
 }
