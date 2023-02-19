@@ -1,17 +1,25 @@
 package ba.unsa.etf.rpr.dao;
-import ba.unsa.etf.rpr.domain.OnlineOrder;
+
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
-
-import java.io.FileReader;
 import java.sql.*;
 import java.util.*;
 
+/**
+ * MySQL's implementation of the DAO
+ * @author Semina Muratovic
+ */
+
 public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
     private static UserDaoSQLImpl instance = null;
+
+    /**
+     * Private constructor for the UserDaoSQLImpl class.
+     */
     private UserDaoSQLImpl() {
         super("User");
     }
+
 
     /**
      * @author Semina Muratovic
@@ -32,6 +40,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
             instance=null;
     }
 
+
     @Override
     public User row2object(ResultSet rs) throws MedicineException
     {
@@ -50,10 +59,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
         }
     }
 
-    /**
-     * @param object - object to be mapped
-     * @return map representation of object
-     */
+
     @Override
     public Map<String, Object> object2row(User object)
     {
@@ -68,6 +74,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
         return item;
     }
 
+    
     @Override
     public User findEmail(String emailField) throws MedicineException{
         String insert = "SELECT id from User where email='" + emailField +"'";
@@ -83,8 +90,4 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
         }
         return null;
     }
-
-
-
-
 }
