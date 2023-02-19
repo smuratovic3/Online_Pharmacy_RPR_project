@@ -1,6 +1,5 @@
 package ba.unsa.etf.rpr.controllers;
 
-
 import ba.unsa.etf.rpr.business.IntermediateManager;
 import ba.unsa.etf.rpr.business.OnlineOrderManager;
 import ba.unsa.etf.rpr.domain.IntermediateTable;
@@ -56,10 +55,7 @@ public class OnlineOrderController {
                 model.setOnlineOrder(o);
 
                 intermediateTable.setOrderOnline(model.getOnlineOrder());
-                System.out.println("OK " + model.getOnlineOrder());
-                //
-                //
-                // System.out.println("OK ");
+                //System.out.println("OK " + model.getOnlineOrder());
             }
         }
 
