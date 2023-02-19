@@ -51,7 +51,10 @@ public class OnlineOrderDaoSQLImpl extends AbstractDao<OnlineOrder> implements O
         }
     }
 
-
+    /**
+     * @param object - object to be mapped
+     * @return map representation of object
+     */
     @Override
     public Map<String, Object> object2row(OnlineOrder object)
     {
