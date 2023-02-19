@@ -40,6 +40,12 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
             instance=null;
     }
 
+
+    /**
+     * @param rs The result set from the database query
+     * @return A Medicine object with properties set according to the values in the result set
+     * @throws MedicineException if there is an error when retrieving values from the result set
+     */
     @Override
     public Medicine row2object(ResultSet rs) throws MedicineException
     {
@@ -79,7 +85,7 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
         return executeQuery("SELECT * FROM Medicine WHERE name LIKE concat('%', ?, '%')", new Object[]{text});
     }
 
-    
+
     @Override
     public List<Medicine> searchByCategory(Category category) throws MedicineException
     {
