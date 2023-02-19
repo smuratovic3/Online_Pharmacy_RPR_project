@@ -12,7 +12,7 @@ public class OnlineOrderDaoSQLImpl extends AbstractDao<OnlineOrder> implements O
         super("OnlineOrder");
     }
 
-    
+
     /**
      * @author Semina Muratovic
      * @return OnlineOrderDaoSQLImpl
@@ -32,6 +32,11 @@ public class OnlineOrderDaoSQLImpl extends AbstractDao<OnlineOrder> implements O
             instance=null;
     }
 
+    /**
+     * @param rs The result set from the database query
+     * @return A OnlineOrder object with properties set according to the values in the result set
+     * @throws MedicineException if there is an error when retrieving values from the result set
+     */
     @Override
     public OnlineOrder row2object(ResultSet rs) throws MedicineException
     {
