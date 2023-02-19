@@ -9,5 +9,5 @@ import ba.unsa.etf.rpr.exceptions.MedicineException;
  */
 public interface UserDao extends Dao<User> {
     User findEmail(String emailField) throws MedicineException;
-    
+
 }

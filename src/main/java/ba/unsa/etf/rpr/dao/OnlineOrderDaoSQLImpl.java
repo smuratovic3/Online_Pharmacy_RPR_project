@@ -1,5 +1,5 @@
 package ba.unsa.etf.rpr.dao;
-import ba.unsa.etf.rpr.domain.Medicine;
+
 import ba.unsa.etf.rpr.domain.OnlineOrder;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import java.sql.*;
@@ -12,6 +12,7 @@ public class OnlineOrderDaoSQLImpl extends AbstractDao<OnlineOrder> implements O
         super("OnlineOrder");
     }
 
+    
     /**
      * @author Semina Muratovic
      * @return OnlineOrderDaoSQLImpl
@@ -45,10 +46,7 @@ public class OnlineOrderDaoSQLImpl extends AbstractDao<OnlineOrder> implements O
         }
     }
 
-    /**
-     * @param object - object to be mapped
-     * @return map representation of object
-     */
+
     @Override
     public Map<String, Object> object2row(OnlineOrder object)
     {
