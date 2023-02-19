@@ -31,7 +31,9 @@ public class IntermediateTable implements Idable {
     public void setOrderOnline(OnlineOrder orderOnline) {
         this.orderOnline = orderOnline;
     }
-    @Override
+
+
+     @Override
     public int getId() {
         return id;
     }

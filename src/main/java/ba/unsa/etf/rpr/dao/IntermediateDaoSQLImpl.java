@@ -1,11 +1,8 @@
 package ba.unsa.etf.rpr.dao;
 
-import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.IntermediateTable;
-import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import java.sql.ResultSet;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -19,7 +16,7 @@ public class IntermediateDaoSQLImpl extends AbstractDao<IntermediateTable> imple
     private static IntermediateDaoSQLImpl instance = null;
     private IntermediateDaoSQLImpl()
     {
-        super("Medicine");
+        super("IntermediateTable");
     }
 
     /**
