@@ -1,8 +1,12 @@
 package ba.unsa.etf.rpr.dao;
 
+import ba.unsa.etf.rpr.business.IntermediateManager;
 import ba.unsa.etf.rpr.domain.IntermediateTable;
+import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -65,12 +69,24 @@ public class IntermediateDaoSQLImpl extends AbstractDao<IntermediateTable> imple
         item.put("onlineOrder_Id", object.getOrderOnline().getId());
         return item;
     }
+    @Override
+    public List<Medicine> getByUser(int idUser) throws MedicineException {
+        try {
+            List<Medicine> medicines = new ArrayList<>();
+            IntermediateManager intermediateManager = new IntermediateManager();
+            List<IntermediateTable> intermediateTables = new ArrayList<>(intermediateManager.getAll());
+            for (IntermediateTable intermediateTable : intermediateTables) {
+                if (intermediateTable.getOrderOnline().getUser().getId() == idUser) {
+                    medicines.add(intermediateTable.getMedicine());
 
-
-
-
-
-
+                }
+            }
+            return medicines;
+        }
+        catch (Exception e) {
+            throw new MedicineException(e.getMessage(), e);
+        }
+    }
 
 
 
