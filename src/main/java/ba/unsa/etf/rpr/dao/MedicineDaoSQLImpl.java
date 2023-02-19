@@ -83,6 +83,11 @@ public class MedicineDaoSQLImpl extends AbstractDao<Medicine> implements Medicin
 
 
 
+    /**
+     * @param text search string for medicine
+     * @return list of medicines
+     * @author Semina Muratovic
+     */
     @Override
     public List<Medicine> searchByText(String text) throws MedicineException
     {
