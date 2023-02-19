@@ -40,7 +40,12 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
             instance=null;
     }
 
-
+    /**
+     * Maps a row from the result set to a User object
+     * @param rs The result set from the database query
+     * @return A User object with properties set according to the values in the result set
+     * @throws MedicineException if there is an error when retrieving values from the result set
+     */
     @Override
     public User row2object(ResultSet rs) throws MedicineException
     {
@@ -74,7 +79,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
         return item;
     }
 
-    
+
     @Override
     public User findEmail(String emailField) throws MedicineException{
         String insert = "SELECT id from User where email='" + emailField +"'";
