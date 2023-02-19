@@ -54,6 +54,11 @@ public class DaoFactory {
     {
         return medicineDao;
     }
+
+    /**
+     * Returns a singleton instance of the OnlineOrderDao class.
+     * @return A singleton instance of the OnlineOrderDao class.
+     */
     public static OnlineOrderDao onlineOrderDao()
     {
         return onlineOrderDao;
