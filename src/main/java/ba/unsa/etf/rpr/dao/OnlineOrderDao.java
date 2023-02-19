@@ -8,7 +8,6 @@ import java.util.List;
 
 /**
  * Dao interface for Category domain bean
- *
  * @author Semina Muratović
  */
 public interface OnlineOrderDao extends Dao<OnlineOrder> {
