@@ -83,7 +83,11 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
         return item;
     }
 
-
+    /**
+     * Checks if email already exists
+     * @param emailField String
+     * @throws MedicineException in case of problems with database
+     */
     @Override
     public User findEmail(String emailField) throws MedicineException{
         String insert = "SELECT id from User where email='" + emailField +"'";
