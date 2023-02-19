@@ -44,9 +44,6 @@ public class RegistrationController {
     UserManager userManager = new UserManager();
 
 
-
-
-
     /**
      Initializes the form by adding event listeners to the form fields.
      */
@@ -187,8 +184,6 @@ public class RegistrationController {
         }
     }
 
-
-
     public void actionClose(ActionEvent actionEvent)
     {
         Stage stage =(Stage)btnCancel.getScene().getWindow();
@@ -248,8 +243,6 @@ public class RegistrationController {
         });
 
     }
-
-
 }
 
 
