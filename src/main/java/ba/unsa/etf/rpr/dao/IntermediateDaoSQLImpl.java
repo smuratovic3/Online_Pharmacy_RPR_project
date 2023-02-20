@@ -77,31 +77,5 @@ public class IntermediateDaoSQLImpl extends AbstractDao<IntermediateTable> imple
         return item;
     }
 
-    /**
-     * Fetches all orders from database with given idUser
-     * @param idUser int
-     * @return List of Medicines
-     * @throws MedicineException in case of problems with database
-     */
-    @Override
-    public List<Medicine> getByUser(int idUser) throws MedicineException {
-        try {
-            List<Medicine> medicines = new ArrayList<>();
-            IntermediateManager intermediateManager = new IntermediateManager();
-            List<IntermediateTable> intermediateTables = new ArrayList<>(intermediateManager.getAll());
-            for (IntermediateTable intermediateTable : intermediateTables) {
-                if (intermediateTable.getOrderOnline().getUser().getId() == idUser) {
-                    medicines.add(intermediateTable.getMedicine());
-
-                }
-            }
-            return medicines;
-        }
-        catch (Exception e) {
-            throw new MedicineException(e.getMessage(), e);
-        }
-    }
-
-
 
 }
