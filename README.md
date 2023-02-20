@@ -43,3 +43,6 @@ Thank you for choosing Online Pharmacy Semina for your medication. We're confide
 ## Screenshots
 Online Pharmacy Semina screenshots
 
+### Home Page
+![Alt Text](./src/main/resources/images/pocetna.png)
+
