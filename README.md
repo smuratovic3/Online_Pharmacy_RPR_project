@@ -44,19 +44,19 @@ Thank you for choosing Online Pharmacy Semina for your medication. We're confide
 Online Pharmacy Semina screenshots
 
 ### Home Page
-![Alt Text](./src/main/resources/images/screenshoots/pocetna.png)
+![Alt Text](./src/main/resources/images/screenshoots/pocetna.PNG)
 
 ### Login Page
-![Alt Text](./src/main/resources/images/screenshoots/login.png)
+![Alt Text](./src/main/resources/images/screenshoots/login.PNG)
 
 ### Registration Page
-![Alt Text](./src/main/resources/images/screenshoots/register.png)
+![Alt Text](./src/main/resources/images/screenshoots/register.PNG)
 
 ### About us Page
-![Alt Text](./src/main/resources/images/screenshoots/about_us.png)
+![Alt Text](./src/main/resources/images/screenshoots/about_us.PNG)
 
 ### Help Page
-![Alt Text](./src/main/resources/images/screenshoots/help.png)
+![Alt Text](./src/main/resources/images/screenshoots/help.PNG)
 
 ### Page when user is logged in
-![Alt Text](./src/main/resources/images/screenshoots/home_page.png)
+![Alt Text](./src/main/resources/images/screenshoots/home_page.PNG)
