@@ -15,38 +15,24 @@ import javafx.stage.Stage;
 
 public class MyListController {
     public Button btnClose;
+
     @FXML
     public TableView<Medicine> listTable;
     @FXML
     public TableColumn<Medicine, String> nameColumn = new TableColumn<>();
+    @FXML
+    public TableColumn<Medicine, String> priceColumn = new TableColumn<>();
 
     @FXML
     private final IntermediateManager intermediateManager = new IntermediateManager();
-    private final MedicineManager medicineManager = new MedicineManager();
 
 
-    public void initialize(){
-        Model model = Model.getInstance();
 
-         nameColumn.setCellValueFactory(new PropertyValueFactory<Medicine, String>("name"));
 
-        refreshMedicines();
-    }
-
-    void refreshMedicines() {
-        try {
-            Model model = Model.getInstance();
-            listTable.setItems(FXCollections.observableList(intermediateManager.getByUser(model.getUser().getId())));
-            listTable.refresh();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-        }
-    }
     public void actionClose(ActionEvent actionEvent)
     {
         Stage stage =(Stage)btnClose.getScene().getWindow();
         stage.close();
     }
+
 }
