@@ -28,7 +28,8 @@
       <Button fx:id="btnClose" cancelButton="true" layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#actionClose" text="Close" />
       <TableView fx:id="listTable" layoutX="187.0" layoutY="113.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn fx:id="nameColumn" prefWidth="199.0" text="Name" />
+          <TableColumn fx:id="nameColumn" prefWidth="100.0" text="Name" />
+            <TableColumn fx:id="priceColumn" prefWidth="99.0" text="Price" />
         </columns>
       </TableView>
    </children>
