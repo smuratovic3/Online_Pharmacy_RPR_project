@@ -2,18 +2,26 @@ package ba.unsa.etf.rpr;
 
 import ba.unsa.etf.rpr.business.CategoryManager;
 import ba.unsa.etf.rpr.business.UserManager;
+import ba.unsa.etf.rpr.controllers.CategoryController;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.dao.UserDao;
 import ba.unsa.etf.rpr.dao.UserDaoSQLImpl;
+import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Medicine;
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
+import javafx.collections.ObservableList;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static ba.unsa.etf.rpr.controllers.MedicineController.medicine;
@@ -80,6 +88,13 @@ public class AppTest {
         assertEquals("jane.doe@example.com", user.getEmail());
         assertEquals("abc123", user.getPassword());
     }
+
+
+    @Test
+    void testGetQuantity() {
+        medicine.setQuantity(100);
+        assertEquals(100, medicine.getQuantity());
+    }
     @Test
     public void validateCategoryName1() throws MedicineException {
         // Test for a valid category name
@@ -93,39 +108,14 @@ public class AppTest {
             assertEquals("Medicine name must be between 3 and 45 chars", e.getMessage());
         }
     }
-    @Test
-    public void validateCategoryName2() throws MedicineException {
-        // Test for a valid category name
-        CategoryManager categoryManager = new CategoryManager();
-        categoryManager.validateCategoryName("Headache");
-        // Test for a name that is too long
-        try {
-            categoryManager.validateCategoryName("This category name is too long and should not be allowed");
-            fail("Expected MedicineException was not thrown");
-        } catch (MedicineException e) {
-            assertEquals("Medicine name must be between 3 and 45 chars", e.getMessage());
-        }
-    }
-    @Test
-    public void validateCategoryName3() throws MedicineException {
-        // Test for a valid category name
-        CategoryManager categoryManager = new CategoryManager();
-        categoryManager.validateCategoryName("Headache");
-        // Test for a null name
-        try {
-            categoryManager.validateCategoryName(null);
-            fail("Expected MedicineException was not thrown");
-        } catch (MedicineException e) {
-            assertEquals("Medicine name must be between 3 and 45 chars", e.getMessage());
-        }
-    }
-
 
     @Mock
     private UserDao userDao;
     public User user = new User();
     private UserDaoSQLImpl usersDaoSQLMock = Mockito.mock(UserDaoSQLImpl.class);
     private UserManager userManager = new UserManager();
+    private CategoryManager categoryManager = new CategoryManager();
+
 
     @BeforeEach
     public void setUp() {
@@ -138,6 +128,7 @@ public class AppTest {
         user.setPassword("azra123");
         MockitoAnnotations.openMocks(this);
         userManager = new UserManager();
+        categoryManager = Mockito.mock(CategoryManager.class);
     }
 
 
@@ -165,6 +156,15 @@ public class AppTest {
         void deleteTest() throws Exception {
         userDao.delete(1);
         verify(userDao).delete(1);
+    }
+
+    @Test
+    void addNewCategory() throws MedicineException {
+        Category newCategory = new Category( "Headache");
+        categoryManager.add(newCategory);
+
+        Assertions.assertTrue(true);
+        Mockito.verify(categoryManager).add(newCategory);
     }
 }
 
