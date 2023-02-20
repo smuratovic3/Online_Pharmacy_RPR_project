@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
@@ -108,6 +109,8 @@ public class MedicineController {
             e.printStackTrace();
         }
     }
+
+    // Define the searchByText function
     public void searchByText(ActionEvent actionEvent)
     {
         try {
@@ -192,5 +195,14 @@ public class MedicineController {
         }
         }
     }
+
+        /*public void enterPress(){
+        searchText.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                searchByText(null); // pass null as the ActionEvent argument
+            }
+        });
+    }
+*/
 
 }
