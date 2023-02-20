@@ -54,3 +54,6 @@ Online Pharmacy Semina screenshots
 
 ### About us Page
 ![Alt Text](./src/main/resources/images/about_us.png)
+
+### Help Page
+![Alt Text](./src/main/resources/images/help.png)
