@@ -48,3 +48,6 @@ Online Pharmacy Semina screenshots
 
 ### Login Page
 ![Alt Text](./src/main/resources/images/login.png)
+
+### Registration Page
+![Alt Text](./src/main/resources/images/register.png)
