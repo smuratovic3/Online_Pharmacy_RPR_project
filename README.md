@@ -57,3 +57,6 @@ Online Pharmacy Semina screenshots
 
 ### Help Page
 ![Alt Text](./src/main/resources/images/help.png)
+
+### Page when user is logged in
+![Alt Text](./src/main/resources/images/home_page.png)
