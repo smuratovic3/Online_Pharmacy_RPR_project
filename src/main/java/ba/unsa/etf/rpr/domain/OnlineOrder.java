@@ -9,6 +9,14 @@ public class OnlineOrder implements Idable {
     private int id;
 
     private int bill;
+
+
+
+    private String address;
+
+
+
+    private int phonenumber;
     private User user;
 
 
@@ -60,6 +68,16 @@ public class OnlineOrder implements Idable {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
 
     @Override
     public String toString() {

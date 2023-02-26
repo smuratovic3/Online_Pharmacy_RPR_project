@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.IntermediateManager;
 import ba.unsa.etf.rpr.business.OnlineOrderManager;
+import ba.unsa.etf.rpr.business.UserManager;
 import ba.unsa.etf.rpr.domain.IntermediateTable;
 import ba.unsa.etf.rpr.domain.OnlineOrder;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
@@ -12,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.List;
@@ -25,8 +27,11 @@ public class OnlineOrderController {
     public Label medicinePrice;
     public Label medicineQuantity;
     public Label medicineDescription;
+    public TextField addressName;
     OnlineOrderManager onlineOrderManager = new OnlineOrderManager();
+    UserManager userManager = new UserManager();
     private String email;
+    public static OnlineOrder onlineOrder = new OnlineOrder();
 
 
 
@@ -37,34 +42,32 @@ public class OnlineOrderController {
         medicinePrice.setText(String.valueOf(MedicineController.medicine.getPrice()) + "$");
         medicineQuantity.setText(String.valueOf(MedicineController.medicine.getQuantity()));
         medicineDescription.setText(MedicineController.medicine.getDescription());
+        addressName.setText(OnlineOrderController.onlineOrder.getAddress());
 
     }
+
 
     public void insertData() throws MedicineException {
         Model model = Model.getInstance();
         OnlineOrder onlineOrder = new OnlineOrder();
         onlineOrder.setUser(model.getUser());
         onlineOrder.setBill(model.getMedicine().getPrice());
+        onlineOrder.setAddress(addressName.getText()); // set the address from the text field
         onlineOrderManager.add(onlineOrder);
 
         IntermediateTable intermediateTable = new IntermediateTable();
         List<OnlineOrder> lista = onlineOrderManager.getAll();
-       // System.out.println("OK ");
-        for(OnlineOrder o : lista){
-            if(o.getBill() == onlineOrder.getBill() && o.getUser().equals(onlineOrder.getUser())){
+        for (OnlineOrder o : lista) {
+            if (o.getBill() == onlineOrder.getBill() && o.getUser().equals(onlineOrder.getUser())) {
                 model.setOnlineOrder(o);
 
                 intermediateTable.setOrderOnline(model.getOnlineOrder());
-                //System.out.println("OK " + model.getOnlineOrder());
             }
         }
 
         intermediateTable.setMedicine(model.getMedicine());
-        System.out.println( intermediateTable.getMedicine().getName() + " " + intermediateTable.getOrderOnline().getBill());
         IntermediateManager intermediateManager = new IntermediateManager();
         intermediateManager.add(intermediateTable);
-
-
     }
 
 

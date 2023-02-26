@@ -4,8 +4,12 @@ import ba.unsa.etf.rpr.business.CategoryManager;
 import ba.unsa.etf.rpr.business.MedicineManager;
 import ba.unsa.etf.rpr.domain.Category;
 import ba.unsa.etf.rpr.domain.Medicine;
+import ba.unsa.etf.rpr.domain.OnlineOrder;
+import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.MedicineException;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +33,8 @@ public class MedicineController {
     private final CategoryManager categoryManager = new CategoryManager();
 
     public static Medicine medicine = new Medicine();
+    public static User user = new User();
+
 
     @FXML
      public TableColumn<Medicine, String> nameColumn  = new TableColumn<>();
@@ -59,7 +65,11 @@ public class MedicineController {
          priceColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("price"));
          quantityColumn.setCellValueFactory(new PropertyValueFactory<Medicine, Integer>("quantity"));
          descriptionColumn.setCellValueFactory(new PropertyValueFactory<Medicine, String>("description"));
-        class OrderCell extends TableCell<Medicine, Integer> {
+         /*searchText.textProperty().addListener((observable, oldValue, newValue) -> {
+             System.out.println("New value: " + newValue);
+    });
+*/
+    class OrderCell extends TableCell<Medicine, Integer> {
         private Button btn = new Button("Order");
 
         public OrderCell() {
@@ -96,7 +106,8 @@ public class MedicineController {
             }
         }
     }
-    orderColumn.setCellFactory(column -> new OrderCell());
+        orderColumn.setCellFactory(column -> new OrderCell());
+
 
         refreshMedicine();
 }
@@ -115,6 +126,7 @@ public class MedicineController {
     {
         try {
             List<Medicine> lista =medicineManager.searchMedicine(searchText.getText());
+           // medicineTable.setItems(FXCollections.observableList(lista));
             if(lista.size() > 0){
                 System.out.println(lista.get(0).getName() + " " + lista.get(0).getDescription());
             }
@@ -123,6 +135,17 @@ public class MedicineController {
             new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
         }
     }
+    /*public void searchByText(ActionEvent actionEvent) {
+        try {
+            List<Medicine> allMedicines = medicineManager.getAll(); // get all medicines
+            FilteredList<Medicine> filteredList = new FilteredList<>(FXCollections.observableList(allMedicines)); // create a filtered list
+            filteredList.setPredicate(medicine -> medicine.getName().toLowerCase().contains(searchText.getText().toLowerCase())); // set the predicate to match the search text
+            medicineTable.setItems(filteredList); // set the table view to show the filtered list
+        } catch (MedicineException e) {
+            new Alert(Alert.AlertType.NONE, e.getMessage(), ButtonType.OK).show();
+        }
+    }
+*/
 
     public void actionAboutUs(ActionEvent actionEvent) throws IOException
     {
@@ -196,6 +219,13 @@ public class MedicineController {
         }
     }
 
+    /*public void deleteFromList() throws MedicineException {
+        List<Medicine> lista = FXCollections.observableList(medicineManager.getAll());
+        for(int i = 0; i < lista.size(); i++){
+            medicineManager.delete(lista.get(i).getId());
+        }
+    }
+*/
         /*public void enterPress(){
         searchText.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
@@ -204,5 +234,6 @@ public class MedicineController {
         });
     }
 */
+
 
 }

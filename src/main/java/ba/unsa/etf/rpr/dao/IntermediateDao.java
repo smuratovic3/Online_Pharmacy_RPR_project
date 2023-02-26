@@ -7,6 +7,6 @@ import ba.unsa.etf.rpr.exceptions.MedicineException;
 import java.util.List;
 
 public interface IntermediateDao extends Dao<IntermediateTable> {
-
+    List<IntermediateTable> getByUser(int idUser) throws MedicineException;
 
 }

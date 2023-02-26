@@ -11,6 +11,14 @@ public class Category implements Idable{
     private String name;
 
 
+    public Category() {
+    }
+
+    public Category( String name) {
+
+        this.name = name;
+    }
+
     /**
      * Getter for id
      * @return int
